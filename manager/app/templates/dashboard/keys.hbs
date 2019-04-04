@@ -1,0 +1,26 @@
+<header>
+  {{link-to "New Access Key" "dashboard.keys.new" class="button"}}
+</header>
+
+<table class="keys-table">
+  <thead>
+    <tr>
+      <th class="col-label" scope="col">Key</th>
+      <th class="col-kind" scope="col">Kind</th>
+      <th class="col-total-requests num" scope="col">Requests</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each key in model}}
+      {{#link-to "dashboard.keys.show" key tagName="tr"}}
+        <td>{{key.label}}</td>
+        <td>{{key.humanKind}}</td>
+        <td class="num">{{key.totalCycleRequests}}</td>
+      {{/link-to}}
+    {{else}}
+      <tr class="empty">
+        <td colspan="3"><em>You have not created any access keys.</em></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

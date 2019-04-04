@@ -1,0 +1,43 @@
+<header>
+  <h1 class="lcboapi-wordmark">
+    {{#link-to "dashboard"}}
+      <span>LCBO API</span>
+    {{/link-to}}
+  </h1>
+</header>
+
+{{#ui-form model=this minimal=true action="authenticate"}}
+  <h2 class="novis">Log In</h2>
+
+  <ol class="minimal-fields">
+    {{ui-form-field
+      type="email"
+      for="email"
+      placeholder="Email"
+      value=identification
+      tabindex=1
+      autofocus=true}}
+
+    {{ui-form-field
+      type="password"
+      for="password"
+      value=password
+      tabindex=2}}
+  </ol>
+
+  {{#if errorMessage}}
+    <div class="form-field-error">
+      <i class="fa fa-exclamation-triangle"></i> {{errorMessage}}
+    </div>
+  {{/if}}
+
+  <div class="actions">
+    <button class="log-in" type="submit" tabindex="3">
+      Log In
+    </button>
+  </div>
+
+  <div class="alt-actions">
+    <p>Don&rsquo;t have an account? {{#link-to "signup"}}Sign Up{{/link-to}}</p>
+  </div>
+{{/ui-form}}

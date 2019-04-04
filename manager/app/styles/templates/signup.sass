@@ -1,0 +1,43 @@
+.app.signup
+  .actions button
+    width: 100%
+    padding: 0
+
+  .terms
+    text-align: center
+    color: material-color('blue-grey', '700')
+
+.signup-done
+  text-align: center
+
+  h1
+    position: relative
+    margin: 0
+    margin-top: -8px
+    color: material-color('blue-grey')
+    text-align: center
+    font-weight: 700
+    font-size: 38px
+
+    &:before
+      display: block
+      +font-awesome
+      font-size: 48px
+      content: "\f058"
+      color: material-color('green', '300')
+
+  p
+    color: material-color('blue-grey', '800')
+    line-height: 1.75
+    margin: 32px 0
+
+  em
+    color: material-color('blue-grey')
+
+    i
+      color: material-color('light-blue', '400')
+      position: relative
+      top: 2px
+      padding-right: 2px
+      +font-smoothing(antialias)
+      font-size: 22px

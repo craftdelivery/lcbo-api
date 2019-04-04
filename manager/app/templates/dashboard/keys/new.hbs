@@ -1,0 +1,50 @@
+{{#ui-form model=model action="createKey"}}
+  <h1>New Access Key</h1>
+
+  <ol class="stacked-fields">
+    {{ui-form-field
+      label="Access Type"
+      type="select"
+      for="kind"
+      tabindex=1
+      info="tooltips/dashboard/keys/kind"
+      items=kindOptions}}
+
+    {{ui-form-field
+      for="label"
+      label="Name / Label"
+      maxlength=100
+      tabindex=2
+      placeholder="MyApp"
+      info="tooltips/dashboard/keys/label"}}
+
+    {{#if isClient}}
+      {{ui-form-field
+        type="checkbox"
+        tabindex=3
+        for="inDevmode"
+        label="Development Mode"
+        info="tooltips/dashboard/keys/in-devmode"}}
+    {{/if}}
+
+    {{#if isWebClient}}
+      {{ui-form-field
+        for="domain"
+        tabindex=4
+        placeholder="mysite.com"
+        info="tooltips/dashboard/keys/domain"}}
+    {{/if}}
+
+    {{ui-form-field
+      for="info"
+      tabindex=5
+      type="textarea"
+      optional=true
+      label="Info / Notes"
+      info="tooltips/dashboard/keys/info"}}
+  </ol>
+
+  <div class="actions">
+    <button type="submit" tabindex="5">Create Access Key</button>
+  </div>
+{{/ui-form}}

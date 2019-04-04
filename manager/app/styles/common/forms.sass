@@ -1,0 +1,252 @@
+.form-field-error
+  color: material-color('red')
+
+form
+  text-align: left
+
+  &.minimal
+    > h1, > h2, > p
+      text-align: center
+
+  .optional
+    position: relative
+    display: inline-block
+    font-size: 13px
+    font-weight: 500
+    background: material-color('blue-grey', '200')
+    color: white
+    line-height: 1
+    padding: 4px 6px
+    border-radius: 3px
+    top: -1px
+    left: 2px
+
+  label i.info
+    position: relative
+    left: 4px
+    font-size: 18px
+    color: material-color('blue-grey', '100')
+
+    span
+      display: none
+      position: absolute
+      border-radius: 3px
+      background-color: rgba(material-color('blue-grey', '900'), 0.9)
+      color: white
+      z-index: 10000
+      font-size: 13px
+      font-weight: 300
+      font-style: normal
+      width: 384px
+      line-height: 1.5
+      padding: 1px 12px
+      left: 22px
+      top: -0.5em
+
+      p
+        margin: 8px 0
+
+      &:hover
+        display: block
+
+    &:hover
+      color: material-color('purple', 'a400')
+
+      span
+        display: block
+
+    &:before
+      cursor: help
+      +font-awesome
+      content: "\f059"
+
+  .actions
+    text-align: center
+    margin: 40px
+
+    button[type="submit"]
+      @extend .button
+      font-weight: 500
+      font-family: $roboto
+      font-size: 22px
+      height: 54px
+      line-height: 1
+      padding: 0 22px
+
+      &.log-in
+        position: relative
+
+        &:before
+          +font-awesome
+          position: absolute
+          content: "\f090"
+          font-size: 26px
+          left: 16px
+          top: 12px
+
+  .alt-actions
+    font-weight: 300
+    font-style: italic
+    text-align: center
+    color: material-color('blue-grey', '400')
+    margin-top: 54px
+
+    a
+      text-decoration: none
+      color: material-color('blue-grey', '700')
+      font-weight: 400
+
+      &:active
+        color: material-color('purple', 'a400')
+
+  .form-field-error
+    display: block
+    font-style: normal
+    font-weight: 400
+    font-size: 14px
+    text-align: right
+    line-height: 2
+    padding: 0 8px
+
+  .checkbox .form-field-error
+    text-align: center
+
+  .field
+    padding: 8px 0
+    position: relative
+
+    &.is-invalid
+      label, input
+        color: material-color('red')
+      input[type="checkbox"]
+        background: material-color('red')
+      input
+        border-color: material-color('red', '300')
+
+        +placeholder
+          color: material-color('red', '200')
+
+  label
+    font-weight: 500
+    color: material-color('blue-grey', '700')
+
+  .field.checkbox
+    label
+      font-weight: 400
+      cursor: pointer
+    input
+      position: relative
+      font-size: 16px
+      top: -1px
+
+  input[type="text"], input[type="email"], input[type="password"], select, textarea
+    width: 100%
+    display: block
+    box-sizing: border-box
+    z-index: 1
+    margin: 0
+    padding: 8px 12px
+    padding-top: 7px
+    padding-bottom: 9px
+    font-family: $roboto
+    font-size: 18px
+    outline: none
+    background: white
+    border: 1px solid material-color('blue-grey', '200')
+    border-radius: 3px
+
+    &:focus
+      border-color: material-color('blue-grey', '400')
+      @extend %glow
+
+  select
+    padding: 0
+    height: 42px
+
+  label.checkbox
+    color: material-color('blue-grey', '700')
+    font-weight: 400
+
+    input
+      position: relative
+      top: -1px
+      font-size: 16px
+
+  .stacked-fields
+    margin: 0
+    padding: 0
+    list-style: none
+
+    .field
+      margin: 16px 0
+      padding: 0
+
+      label
+        padding: 0
+        line-height: 1.8
+
+      &.checkbox label
+        line-height: 1
+        margin-top: -4px
+
+
+  .minimal-fields
+    margin: 0
+    padding: 0
+    list-style: none
+
+    > li
+      input
+        padding-left: 40px
+
+        &:focus + label
+          color: material-color('purple', 'a400')
+
+      &:not(.checkbox) label[for]
+        position: absolute
+        top: 0
+        left: 0
+        font-size: 18px
+        text-align: center
+        z-index: 2
+        +font-awesome
+
+        &:before
+          position: relative
+          top: 20px
+          left: 15px
+
+      &.password
+        label
+          left: 3px !important
+
+          &:before
+            content: "\f023"
+
+        .toggle-mask
+          +font-awesome
+          position: absolute
+          top: 17px
+          right: 12px
+          background: transparent
+          font-size: 22px
+          border: none
+          padding: 0
+          margin: 0
+          outline: none
+          cursor: pointer
+          color: material-color('blue-grey', '300')
+
+          &.masked:after
+            content: "\f070"
+
+          &.unmasked
+            color: material-color('green', '600')
+            &:after
+              content: "\f06e"
+
+      &.email label:before
+        content: "\f003"
+
+      &.name label:before
+        content: "\f007"

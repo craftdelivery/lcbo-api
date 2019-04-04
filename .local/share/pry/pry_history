@@ -1,0 +1,13 @@
+Product.first
+Store.first
+Store.count
+Store.last
+Product.last
+Product.count
+Inventory.count
+exit
+Store.count
+Module.constants.select { |c| (eval c).is_a? Class }
+ActiveRecord::Base.descendants
+Rails.application.eager_load!
+ActiveRecord::Base.descendants

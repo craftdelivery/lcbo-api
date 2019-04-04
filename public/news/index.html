@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="A fast, cloud-based API for LCBO store, product, and inventory data">
+    <title>LCBO API</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,900,400italic,400,300,300italic,700,700italic|Roboto+Condensed:700|Source+Code+Pro:400' rel='stylesheet' type='text/css'>
+    <link href="/static/css/lcboapi.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/lcboapi.js" type="text/javascript"></script>
+  </head>
+
+  <body class="lcboapi news news_index">
+    <header>
+      <h1 class="lcboapi-wordmark">
+        <a href="/">
+          <span>LCBO API</span>
+        </a>
+      </h1>
+      <nav>
+        <ol>
+          <li>
+            <a class="about" href="/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a class="docs" href="/docs/v1">
+              Documentation
+            </a>
+          </li>
+          <li>
+            <a class="news" href="/news">
+              News
+            </a>
+          </li>
+          <li>
+            <a href="/log-in">
+              Log In
+            </a>
+          </li>
+          <li class="sign-up">
+            <a href="/sign-up" class="button">
+              Get A Key
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content-page">
+  <header class="page-header">
+    <h1>News &amp; Updates</h1>
+  </header>
+
+    <article class="document">
+      <header>
+        <h1>
+          <a class="link" href="/news/lcbo-api-is-now-open-source-software/">LCBO API is now Open Source Software</a>
+        </h1>
+        <div class="meta">
+          <span class="date">
+            January  8, 2019
+          </span>
+          <span class="sep">
+            &mdash;
+          </span>
+          <span class="author">
+            <a href="https://twitter.com/heycarsten">heycarsten</a>
+          </span>
+        </div>
+      </header>
+      <p>Hello everyone!</p>
+
+<p>My-oh-my have things changed since my last update a month ago in November!</p>
+
+<ul>
+<li>Shortly after that post, my lymphoma symptoms started to return and I found out that my <a href="https://en.wikipedia.org/wiki/Diffuse_large_B-cell_lymphoma">lymphoma</a> is still active, considered aggressively refractory</li>
+<li><strong><a href="https://github.com/heycarsten/lcbo-api">I released LCBO API as open source software, check it out!</a></strong></li>
+<li>I will be undergoing immunotherapy (<a href="https://yescarta.com">Yescarta</a>) as a third-line treatment at <a href="https://www.roswellpark.org">Roswell Park</a> in <a href="https://en.wikipedia.org/wiki/Buffalo,_New_York">Buffalo, NY</a></li>
+<li>My <a href="https://twitter.com/heycarsten/status/1082630102003998721">treatment plan</a> begins on January 15th, 2019 (the same day I was planning to turn off LCBO API)</li>
+</ul>
+
+<p>The service is currently hosted on <a href="https://linode.com">Linode</a>, has been since 2009. Linode prorates for the month of usage. Since I will be undergoing T-cell harvest on the 15th I won&rsquo;t be turning it off that day. I will however be shutting it down by the end of January.</p>
+
+<blockquote>
+<p>Please plan to discontinue using LCBO API on January 15th, but service will continue for a few days after that.</p>
+</blockquote>
+
+<p>I&rsquo;m also very open to bringing the project back up again! I can no longer personally cover this burden, I can not singlehandedly support and maintain it anymore, however, I&rsquo;d love to be a part of it though, and I have lots of ideas.</p>
+
+<p>My ideal setup for LCBO API would look something like:</p>
+
+<ul>
+<li>Containerized - <a href="https://aws.amazon.com/ecs/">Amazon ECS</a></li>
+<li>Managed Postgres - <a href="https://aws.amazon.com/rds/postgresql/">Amazon RDS</a></li>
+<li>Managed Redis - <a href="https://aws.amazon.com/elasticache/redis/">Amazon ElastiCache</a></li>
+<li>Continuous Integration &amp; Deployment - <a href="https://circleci.com/">CircleCI</a></li>
+<li>Monitoring - <a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a></li>
+</ul>
+
+<p>I use these technologies and others daily at <a href="https://crowdmark.com">work</a> with great success. I&rsquo;m not tied to AWS, but I have a lot of experience with the platform. Site reliability, scalability, and security is a big part of my job. If I&rsquo;m involved with the future of lcboapi.com, this is the direction I want to go in. Please note: if you want to host your own instance of LCBO API on your own server, <strong>I fully support you!</strong> I think we could do <a href="https://github.com/heycarsten/lcbo-api/blob/master/doc/lcboapi-proposed.md">something even better</a> than that, but in the meantime do what you need to do to keep your stuff working!</p>
+
+<p>I have been trying to appeal to corporate sponsors without too much luck so far, but it&rsquo;s still early days. I reached out to <a href="https://heroku.com">Heroku</a>, <a href="https://aws.amazon.com">Amazon AWS</a>, and <a href="https://azure.microsoft.com">Microsoft Azure</a>, this sort of stuff takes time though. <em>I am positive that something will connect in the coming months.</em></p>
+
+<p>I&rsquo;ll be sure to keep everyone updated as things develop. If you wish you can follow me and LCBO API on Twitter, I update fairly frequently:</p>
+
+<ul>
+<li><a href="https://twitter.com/heycarsten">@heycarsten</a></li>
+<li><a href="https://twitter.com/lcboapi">@lcboapi</a></li>
+</ul>
+
+<p>Take care, everyone!</p>
+
+<p>&mdash; Carsten</p>
+
+<hr>
+
+    </article>
+    <article class="document">
+      <header>
+        <h1>
+          <a class="link" href="/news/lcbo-api-shutting-down/">LCBO API Shutting Down</a>
+        </h1>
+        <div class="meta">
+          <span class="date">
+            November  9, 2018
+          </span>
+          <span class="sep">
+            &mdash;
+          </span>
+          <span class="author">
+            <a href="https://twitter.com/heycarsten">heycarsten</a>
+          </span>
+        </div>
+      </header>
+      <p><em>UPDATE: LCBO API is open source software now, please <a href="/news/lcbo-api-is-now-open-source-software/">read more</a></em></p>
+
+<p>Hey y&rsquo;all!</p>
+
+<p>2018 has been a wild year. In March I was diagnosed with Diffuse Large B-Cell Lymphoma, an aggressive form of Non-Hodgekin Lymphoma. It was a shock. My treatment was progressing well until May when it stopped working. After a couple rounds of salvage chemotherapy I underwent an <a href="https://twitter.com/heycarsten/status/1024494222521638912">Autologus Stem Cell Transplant</a>&ndash;<em>and so far it seems to be working!</em> I&rsquo;m feeling better every day and I&rsquo;m finally in a place where I can work again and mostly live my normal life.</p>
+
+<p>During my treatment it became alarmingly clear to me that this project either needed to progress in a <em><strong>BIG</strong></em> way or be retired. I have been in contact with the LCBO and they are not interested in supporting the project, they expect to have their own API released at some point soon though. I&rsquo;ve put the feelers out to you, my users, and you&rsquo;ve spoken too; LCBO API is just not something enough of you are willing/able to support financially.</p>
+
+<p>LCBO API will continue to do its thing until <strong>January 15th, 2019</strong> at which point it will be shut down forever. I&rsquo;ve met so many great people, I&rsquo;ve been incredibly inspired, and I&rsquo;ve learned a lot in the 10 years of running this project. I am forever grateful, thank you for being a part of it!</p>
+
+<p>&mdash; Carsten</p>
+
+<hr>
+
+    </article>
+    <article class="document">
+      <header>
+        <h1>
+          <a class="link" href="/news/lcbo-api-crawler-blocked/">LCBO API Crawler Blocked (Resolved)</a>
+        </h1>
+        <div class="meta">
+          <span class="date">
+            January  5, 2016
+          </span>
+          <span class="sep">
+            &mdash;
+          </span>
+          <span class="author">
+            <a href="https://twitter.com/heycarsten">heycarsten</a>
+          </span>
+        </div>
+      </header>
+      <p><strong>UPDATE: (Jan 6) The issue has been resolved and LCBO
+API is functioning normally again. A big thanks to the LCBO team!
+<i class="fa fa-heart"></i></strong></p>
+
+<hr>
+
+<p>UPDATE: (Jan 6) It appears that the blockage was
+<a href="https://twitter.com/LCBO/status/684740392529604609">NOT intentional</a>, and the
+LCBO is working to resolve the issue.</p>
+
+<hr>
+
+<p>On January 5th, 2016 the LCBO blocked LCBO API&rsquo;s crawler from accessing LCBO
+websites. This means that LCBO API can not update its data.</p>
+
+<p>It is still unknown whether this action was deliberate or an unintended
+side-effect of something else.</p>
+
+<p>What is known is that for the past 7 years LCBO API has been crawling LCBO.com
+and serving a machine-readable version of it. I have attempted to get in touch
+with LCBO management (unsuccessfully) and have yet to be contacted by the LCBO
+in any way (ever). If this makes it to anyone at the LCBO, please
+<a href="mailto:heycarsten@gmail.com">contact me</a>.</p>
+
+<p>To the LCBO: I feel that blocking LCBO API is not a good idea, it&rsquo;s not good
+for Ontarians and it&rsquo;s not good for the LCBO. It is used heavily and is a
+source of goodwill and value for your corporation. I am open to any discussion
+you wish to have and I am happy to work with you in any way. Frankly, I&rsquo;ve
+always wished you were fully involved!</p>
+
+<p>For all of the creators of innovative applications that use LCBO API to
+integrate LCBO store, product, and inventory data into their products; I am
+sorry that this happened, hang in there though.</p>
+
+<p>&mdash; Carsten</p>
+
+<p>Follow <a href="https://twitter.com/lcboapi">@lcboapi</a> on Twitter for updates.</p>
+
+<hr>
+
+    </article>
+    <article class="document">
+      <header>
+        <h1>
+          <a class="link" href="/news/v2-update-ontario-craft-brewers-identification/">V2 Update, Ontario Craft Brewers Identification</a>
+        </h1>
+        <div class="meta">
+          <span class="date">
+            February 17, 2015
+          </span>
+          <span class="sep">
+            &mdash;
+          </span>
+          <span class="author">
+            <a href="https://twitter.com/heycarsten">heycarsten</a>
+          </span>
+        </div>
+      </header>
+      <p>Well, it&rsquo;s been a busy couple of months since my
+<a href="/news/whats-next-for-lcbo-api/">last post</a>. In two months, exactly 99 of you
+have registered and created API keys, I am humbled and impressed! LCBO API saw
+200% more throughput this January compared to last year for a total of 2.3
+million requests served, pretty wild for the slowest time of the year!</p>
+
+<p>In other news I&rsquo;ve been hard at work on all of the new stuff I have planned for
+V2 of LCBO API. Catagories are now a first-class resource as well as producers,
+and UPC lookups are now functional.</p>
+
+<p>After I normalized producers it had me thinking about how the official LCBO site
+allows people to filter products by VQA designation. I thought it would be nice
+to identify products that are produced by
+<a href="http://www.ontariocraftbrewers.com/">Ontario Craft Brewers</a>, so I now cross
+reference that data with the LCBO product catalog.</p>
+
+<p>I&rsquo;ve backported this functionality into V1 so you can start using it immediately.
+Products now have a boolean field called <code>is_ocb</code> that identifies if the product
+is produced by an OCB member. You can also filter on this field with the standard
+V1 filtering parameter <a href="/products?where=is_ocb"><code>/products?where=is_ocb</code></a> or
+exclude OCB products by using
+<a href="/products?where_not=is_ocb"><code>/products?where_not=is_ocb</code></a>. I&rsquo;m excited to see
+how people integrate this data into their products. It&rsquo;s a simple
+addition and one that reflects the direction that LCBO API is taking.</p>
+
+<p>Finally, I&rsquo;m going to be in Portland, Oregon for the first week of March to attend
+<a href="http://emberconf.com">Ember Conf</a>, I realized that this conflicts with
+my original release date of March 1<sup>st</sup> for LCBO API V2, so I&rsquo;m bumping
+the date by a week to March 8<sup>th</sup>. I don&rsquo;t want to release V2 when I&rsquo;m
+possibly not available to answer questions and deal with potential issues.</p>
+
+<p>That&rsquo;s it for now, take care everyone!</p>
+
+<p>&mdash; Carsten</p>
+
+<hr>
+
+    </article>
+    <article class="document">
+      <header>
+        <h1>
+          <a class="link" href="/news/whats-next-for-lcbo-api/">What’s next for LCBO API</a>
+        </h1>
+        <div class="meta">
+          <span class="date">
+            December 16, 2014
+          </span>
+          <span class="sep">
+            &mdash;
+          </span>
+          <span class="author">
+            <a href="https://twitter.com/heycarsten">heycarsten</a>
+          </span>
+        </div>
+      </header>
+      <blockquote>
+<p>Before I get into the shape of LCBO API to come, I think it&rsquo;s about time I
+told the story of LCBO API. It&rsquo;s been quite the journey so far, and it&rsquo;s also
+a bit of a lengthy read, so if you&rsquo;d rather <a href="#v2">skip ahead</a> to where I talk
+about the new stuff, I won&rsquo;t mind. <i class="fa fa-smile-o"></i></p>
+</blockquote>
+
+<p>This December marks <em>six years</em> since I picked up Rod Phillips&rsquo; book
+<a href="http://www.amazon.ca/The-Best-Value-Wines-LCBO-2009/dp/155285938X">The 500 Best-Value Wines in the LCBO</a>:</p>
+
+<div class="center">
+  <img src="/static/images/news/500-best-value-wines-2009.jpg" width="176">
+</div>
+
+<p>I thought, &ldquo;Wouldn&rsquo;t it be cool if I could use my phone to see a list of the
+wines in this book at the store I&rsquo;m standing in?&rdquo; Then I wouldn&rsquo;t have to run
+through each item in the book and look for it, I&rsquo;d just be presented with a
+list of wines available in the store I&rsquo;m in. Oh, just imagine the efficiency!
+A decent bottle of red to go with dinner in mere seconds, and I always have
+my phone on me.</p>
+
+<p>I really wanted to build it, but before I did anything I&rsquo;d need a way to access
+the LCBO product catalog, inventory data, and store directory. It needed to be
+fast and minimal so that mobile phones (which were still pretty slow at the
+time) could quickly load and parse the responses, but most importantly; it
+needed to exist, and it didn&rsquo;t.</p>
+
+<h2>An API is Born</h2>
+
+<p>The following weeks consisted of me hacking on a crawler after work to
+transform the pages on LCBO.com into usable, normalized data. I knew that if I
+was going to do this, it had to be done really well. At the time, all of the
+pages on LCBO.com were table-based and very hard to parse reliably. The
+character encodings were all over the place, everything was UPPERCASE, and all
+requests were via form posts &mdash; it was a blast!</p>
+
+<p>I also wanted it to be released as a publicly available service so that others
+could use it and build cool things without having to solve this problem
+again-and-again. The first version of LCBO API was released in April, 2009. Over
+the following months I refined the API, and wrote documentation for it. In early
+2010, V1 was released. By this point I had invested nearly 600 hours of my time
+into the project, interest was growing and just maintaining the crawler, adding
+useful features and responding to emails from interested parties was keeping me
+completely busy in my spare time.</p>
+
+<h2>An API is Used</h2>
+
+<blockquote>
+<p>LCBO API isn&rsquo;t just a machine-readable representation of LCBO.com, it holds
+time and place for an entire retail sector in a large market.</p>
+</blockquote>
+
+<p>I honestly never thought LCBO API would become as popular as it has. Last month
+(November) it served <strong>1.4 million requests</strong> and over <strong>100</strong> dataset
+downloads. I thought developers might use it to build LCBO apps for various
+mobile devices, and I thought reviewers might use it to integrate availability
+data into their sites and blogs. But I never could have foresaw all the things
+that have happened over the past six years.</p>
+
+<p>Developers <a href="https://fnd.io/#/us/iphone-app/851166645-lcbo-price-tracker-by-mary-chen">have</a>
+<a href="https://fnd.io/#/us/iphone-app/927272308-booze-deals-by-john-wreford">built</a>
+<a href="https://fnd.io/#/ca/iphone-app/355700315-liquor-on-lcbo-locator-by-hippo-foundry-i">apps</a>,
+<a href="https://fnd.io/#/ca/iphone-app/587694374-lcbo-stores-by-chang-jun-lee">lots</a>
+<a href="https://fnd.io/#/ca/iphone-app/353448944-lcbo-finder-by-brierwood-design-co-operat">of</a>
+<a href="https://play.google.com/store/apps/details?id=com.kiskadee.lcbopricetracker&amp;hl=en">apps</a>,
+<a href="https://play.google.com/store/apps/details?id=se.dou.LcboFinder&amp;hl=en">mostly</a>
+<a href="http://heyelsie.com/">mobile</a>
+<a href="http://theworkshed.com/projects/dowser">apps</a>,
+<a href="http://drinkvine.ca">but</a>
+<a href="http://collectiveartsbrewing.com/beer-finder">also</a>
+<a href="http://thirsty.kx.nu">web</a>
+<a href="http://thebeerguy.ca">apps</a>. Students and hobbyists have fiddled and hacked to
+learn about REST and JSON and how to consume an API. Beer and wine lovers with
+an interest in coding have hacked together scripts to alert them when their
+favorite drinks become available at nearby stores. Independent brewers and
+winemakers have analyzed and identified how their products are doing and
+where the most active markets are to get their products closer to the people
+that might buy them.</p>
+
+<p>One of the most exciting use-cases I ever received was from a statistician
+at Harvard who was using the historical datasets as fixtures for testing
+different algorithms in their research. It was really humbling, and it drove
+home the fact that LCBO API isn&rsquo;t just a machine-readable representation of
+LCBO.com, it holds time and place for an entire retail sector in a
+large market. This doesn&rsquo;t really exist at this scale anywhere else in the
+world &mdash; it&rsquo;s exciting!</p>
+
+<p>I&rsquo;ve had the pleasure of meeting all of these incredible people doing
+interesting things through my work on LCBO API. As much as I&rsquo;d like to end it
+there, in order to tell the whole story I also have to tell you about some of
+the not-so-enjoyable experiences I&rsquo;ve had running LCBO API.</p>
+
+<h2>An API is Abused</h2>
+
+<blockquote>
+<p>It&rsquo;s not a cakewalk producing wine and beer in Ontario, it&rsquo;s a very
+challenging place for small producers to succeed.</p>
+</blockquote>
+
+<p>Once or twice a year someone will reach out to me and pitch me on
+how I could work with them to resell portions of LCBO API inventory data to
+small producers as a report, charging them a premium for this valuable
+insight &mdash; insight that&rsquo;s available on LCBO.com to anyone with a spreadsheet
+application.</p>
+
+<p>Schemes like this are depressingly uncreative, contribute toward a toxic
+ecosystem and stifle innovation by trying to create a walled garden around data
+that should be and already is available to everyone through the LCBO&rsquo;s official
+sales and marketing insight reports.</p>
+
+<p>This is not the reason I created the LCBO API and I have no interest in helping
+people realize such self-serving goals.</p>
+
+<p>In the spring of 2012, changes were being made to LCBO.com on a fairly routine
+basis. There were a couple occasions where I was not able to update the crawler
+for days on end, and the data became stale. It was a very frustrating time, due
+external factors I was unable to spend time to update the crawler even though I
+was desperate to do so.</p>
+
+<p>During this period I received a couple of <em>undiplomatic</em> emails complaining
+about the lapse in data updates. People were understandably upset that the data
+was not up to date for their &ldquo;paying customers&rdquo;. I&rsquo;m a professional software
+developer, but this is a passion project and I only have so much free time. If
+you&rsquo;re using and commercializing my work, at the very least I would hope you
+would be polite when talking to me!</p>
+
+<p>This is some of the dark side of running LCBO API, but you know what? The good
+days far outnumber the bad ones, and it&rsquo;s those good days, and emails, and
+stories, and projects that stoke my passion for working on LCBO API.
+<i class="fa fa-smile-o"></i></p>
+
+<h2>An API Grows Up</h2>
+
+<blockquote>
+<p>I want to build features and tools that allow non-technical users to benefit
+from LCBO API so that it&rsquo;s delivering value to all members of the ecosystem,
+not just ones who can code.</p>
+</blockquote>
+
+<p>I give LCBO API the utmost attention and care, it&rsquo;s a hardened platform built on
+thousands of hours of work and I take every aspect of it very seriously. Going
+forward, I&rsquo;m going to make sure that this level of commitment and quality is
+properly communicated. In addition, I want to build features and tools that
+allow non-technical users to benefit from LCBO API so that it&rsquo;s delivering value
+to all members of the ecosystem, not just ones who can code.</p>
+
+<p>The look and feel of the old site didn&rsquo;t reflect any of this very well and I&rsquo;ve
+wanted to update it for years, so I did. I&rsquo;ve also made a number of changes
+under the hood, here&rsquo;s what to expect soon:</p>
+
+<h3><em>Unlimited</em> Anonymous Access is Deprecated</h3>
+
+<p>For the sake of my sanity, and to provide a better service and not hinder the
+potential of LCBO API, I need to have an understanding of who is using it, for
+what and where. This is why I have introduced the concept of Access Keys to
+LCBO API.</p>
+
+<p class="warning">
+  As of March 8<sup>th</sup>, 2015 anonymous API access will be
+  rate-limited.
+</p>
+
+<p>Anonymous access remains but, as of March 8<sup>th</sup>, 2015, it will be
+rate-limited. This means that you won&rsquo;t need an Access Key for playing around
+or learning, and it means that existing mobile and JavaScript apps will continue
+to work. If you&rsquo;re using LCBO API for anything beyond fiddling, you&rsquo;ll want to
+acquire an Access Key.</p>
+
+<p>In addition to no rate-limit, by using an Access Key you&rsquo;ll also gain insights
+and statistics related to your account:</p>
+
+<p><img src="/static/images/news/lcboapi-manager-graph.png" width="100%"></p>
+
+<p>I plan to build out the management panel further and provide some other useful
+features in the future.</p>
+
+<h3>LCBO API continues to be a labour of love</h3>
+
+<blockquote>
+<p>If LCBO API is making it easier for you to do your job, run your business,
+or build an app, please consider supporting it financially.</p>
+</blockquote>
+
+<p>I don&rsquo;t want to sound like Jimmy Wales here, but outside of simply charging for
+API access on a subscription model, I&rsquo;m hard pressed to come up with a way to
+financially support the project. The hard costs aren&rsquo;t crazy, right now LCBO
+API consists of a load balancer, app server, worker server, and database server,
+it averages about $100/month in hosting costs plus another $60/month for AWS,
+monitoring, and backups.</p>
+
+<p>The reality is that, like everyone, I have bills to pay and a family to support.
+I can&rsquo;t spend as much time on LCBO API as I&rsquo;d like to because at some point it
+eats into time that must be spent earning an income. Responding to
+project-related emails, maintaining the crawlers and ensuring updates happen
+on a daily basis eats up a lot of my available free time. This leaves very little
+bandwidth to actually improve LCBO API and develop the new and exciting things
+that fuel my passion for the project in the first place.</p>
+
+<p>I really don&rsquo;t enjoy talking about these things, but now they&rsquo;re out there and
+very clear, no secrets. <strong>LCBO API costs about $160/month plus a lot of my time
+to run, and it generates $0/month in income</strong>. If LCBO API is making it easier
+for you to do your job, run your business, or build an app, please consider
+supporting it financially.</p>
+
+<h2 id="v2">
+  LCBO API V2
+</h2>
+
+<p>Now for the exciting stuff, as I said before LCBO API was introduced in 2009 and
+the visible API hasn&rsquo;t really changed since that time. <em>UNTIL NOW</em></p>
+
+<h3>HTTPS &amp; CORS</h3>
+
+<p>These features have been backported into LCBO API V1 and are already live. Check
+out the V1 <a href="/docs/v1#getting-started">documentation</a> for more details.</p>
+
+<h3>UPC Support</h3>
+
+<p><em>Finally.</em> You&rsquo;ll be able to look up products by barcode.</p>
+
+<h3>JSON API Compliance</h3>
+
+<p>The JSON structure of the V1 API was born out of necessity. LCBO API V2
+complies with the <a href="http://jsonapi.org">JSON API</a> open standard, making it
+easier to consume the API.</p>
+
+<h3>Category and Producer APIs</h3>
+
+<p>For the sake of completeness and to make it easier to implement discovery /
+browsing interfaces, I&rsquo;ll be normalizing category and producer data and
+providing API endpoints for them.</p>
+
+<h3>Store(s) with Product(s) Feature</h3>
+
+<p>This is a doozie, I&rsquo;ve been asked for this feature a handful of times. I&rsquo;ve even
+been told how easy it is to implement &mdash; <em>it&rsquo;s not</em>. That said, it&rsquo;s required
+functionality if you want to build something like a great shopping-list feature.
+It&rsquo;s a worthwhile ocean to boil, and I&rsquo;m excited to bring it to LCBO API.</p>
+
+<h3>Historical Metrics</h3>
+
+<p>Aggregate metrics such as turnover rate and confidence in inventories. This will
+allow developers to alert users if it looks like a product might not actually
+be available. For example, on average, consumption begins to increase on
+Thursday, and peaks on Saturday. If a product is selling consistently throughout
+the week, and there are only a few left on Saturday morning, it&rsquo;s very likely
+that come Saturday evening it won&rsquo;t be available anymore. Conversely, some
+products are stocked at very low levels and have very low turnover, this also
+has to be considered to avoid false-positives.</p>
+
+<h3>Intelligent Crawler</h3>
+
+<p>A few months ago I tested an accessory crawler that analyzes various blogs and
+news sites for LCBO product numbers. The plan was to then use that information
+to perform priority crawling for pricing and inventory data of those products.
+It seems to work quite well, so this will be officially rolled into LCBO API
+proper as soon as time allows.</p>
+
+<h3>Webhooks</h3>
+
+<p>Now that LCBO API has the concept of accounts and Access Keys adding support
+for webhooks is a much less daunting task. You&rsquo;ll be able to register against
+numerous events such as when products are added or removed, when prices change,
+and when product availability changes. This will make adding notification
+functionality to apps a lot easier and more reliable.</p>
+
+<h3>Products Meta API</h3>
+
+<p>I&rsquo;d love to integrate with top-notch products like <a href="https://untappd.com">Untappd</a>
+to incorporate ratings and other useful data so that it can be used in queries.
+This data would only become visible if you ask for it in requests, imagine
+something like <code>/products?meta=untappd</code> returning:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Amsterdam Boneshaker"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"untappd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"rating_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.72</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4837</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This would enable all sorts of cool uses and possibilities, and could even be
+opened up to allow 3<sup>rd</sup> parties to write custom metadata. If you&rsquo;re
+interested in discussing such a partnership, please
+<a href="mailto:carsten@lcboapi.com">get in touch</a>.</p>
+
+<h2>A Novel is Written</h2>
+
+<p>Today, the original app idea that ignited the motivation to build LCBO API in
+the first place has been far surpassed by entire product companies like
+<a href="http://winealign.ca">WineAlign</a> and <a href="http://www.nataliemaclean.com/">Natalie Maclean</a>.
+I actually find that really cool.</p>
+
+<p>It shows that ideas by themselves are so often futile. You have to act on
+them &mdash; create with them &mdash; and when you do, what they become is never
+exactly what you had in mind. Reality always wiggles its way into the equation
+somehow.</p>
+
+<p>I started with the idea to build a $2.99 iPhone app and ended up with a cloud
+service. A service that&rsquo;s used to help students learn, to help enthusiasts locate
+specialty drinks, to help small producers gain some insight for their product
+line, to enable native mobile applications on any platform, to provide a
+large-scale realistic dataset for research projects. That&rsquo;s something to be
+proud of, and I am. Thanks for listening.</p>
+
+<p>&mdash; Carsten</p>
+
+<footer>
+  Please send me an <a href="mailto:carsten@lcboapi.com">email</a> if you have
+  any comments, corrections, or feedback regarding this post.
+</footer>
+
+    </article>
+</section>
+
+    </main>
+
+    <footer>
+      <nav>
+        <ol>
+          <li>
+            <a href="mailto:info@lcboapi.com">
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="/tos">
+              Legal
+            </a>
+          </li>
+          <li>
+            <a href="/privacy">
+              Privacy
+            </a>
+          </li>
+          <li>
+            <a href="/credits">
+              Credits
+            </a>
+          </li>
+        </ol>
+      </nav>
+
+      <p class="disclaimer">
+        <span>
+          LCBO API is not funded or endorsed by the LCBO
+        </span>
+      </p>
+
+      <p class="copyright">
+        &copy; 2009&ndash;2019
+        <a href="http://heycarsten.com">Carsten Nielsen</a>
+      </p>
+    </footer>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-8617929-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

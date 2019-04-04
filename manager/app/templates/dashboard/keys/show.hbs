@@ -1,0 +1,207 @@
+<h1>{{label}}</h1>
+
+{{#if model.totalCycleRequests}}
+  <section class="activity-detail">
+    <header>
+      <h1>{{currentMonth}}</h1>
+      <h2>Daily Activity</h2>
+    </header>
+    {{line-area-chart height=150 data=model.cycleRequests}}
+  </section>
+{{/if}}
+
+<div class='key-and-usage-wrapper'>
+  <section class="key-detail">
+    <h1>API Key</h1>
+
+    <code class='key-payload'>{{unbound model.token}}</code>
+
+    <ul class='meta'>
+      {{#if model.isServer}}
+        <li>
+          <h2>Type</h2>
+          <p>Private / Server</p>
+        </li>
+      {{else if model.isClient}}
+        <li>
+          <h2>Type</h2>
+          <p>Mobile / Desktop</p>
+        </li>
+      {{else if model.isWeb}}
+        <li>
+          <h2>Type</h2>
+          <p>Web Browser</p>
+        </li>
+        <li title="You can make requests from this domain with CORS or JSONP.">
+          <h2>Domain</h2>
+          <p>{{model.domain}}</p>
+        </li>
+        <li title="Individual clients are limited to 1200 requests per hour.">
+          <h2>Rate Limit</h2>
+          <p>1200 / hour</p>
+        </li>
+      {{/if}}
+    </ul>
+  </section>
+
+  <section class="usage-detail">
+    <h1>Using Your Access Key</h1>
+    <p>
+      In order to use your Access Key, you&rsquo;ll need to include it in the
+      requests you make to LCBO API. You&rsquo;ll want to peplace
+      <code>ACCESS_KEY</code> in the examples below with your actual Access Key
+      shown in the purple box. You can do this in a few ways:
+    </p>
+    <h2>HTTP Authorization Header</h2>
+    <p>
+      This approach is recommended, set the <code>Authorization</code> header
+      like this:
+    </p>
+{{#source-code lang="text"~}}
+Authorization: Token ACCESS_KEY
+{{~/source-code}}
+    <h2>URL Query Parameter</h2>
+    <p>
+      LCBO API will also accept your Access Key as a parameter in URLs named
+      <code>access_key</code>, add it like this:
+    </p>
+{{#source-code lang="text"~}}
+https://lcboapi.com/products?access_key=ACCESS_KEY
+{{~/source-code}}
+    <h2>Basic Authentication</h2>
+    <p>
+      As a last resort, if you tooling only allows you to specify a username
+      and password for HTTP Basic Auth, you can use your Access Key as the
+      password, and <code>x-access-key</code> as the username:
+    </p>
+{{#source-code lang="text"~}}
+https://ACCESS_KEY:x-access-key@lcboapi.com/products
+{{~/source-code}}
+  </section>
+</div>
+
+<section class="examples-detail">
+  <h1>Examples</h1>
+
+  {{#if isWeb}}
+    <article class='code-example'>
+      <h2>jQuery</h2>
+{{#source-code lang="javascript"~}}
+jQuery.ajax({
+  url: 'https://lcboapi.com/stores',
+  headers: { 'Authorization': 'Token ACCESS_KEY' }
+}).then(function(data) {
+  console.log(data);
+});
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>WinJS (Web Context)</h2>
+{{#source-code lang="javascript"~}}
+WinJS.xhr({
+  url: 'https://lcboapi.com/stores',
+  headers: { 'Authorization': 'Token ACCESS_KEY' }
+}).done(function(result) {
+  console.log(result);
+});
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>dojo</h2>
+{{#source-code lang="javascript"~}}
+require(['dojo/request/xhr'], function(xhr) {
+  xhr('https://lcboapi.com/stores', {
+    handleAs: 'json',
+    headers: { 'Authorization': 'Token ACCESS_KEY' }
+  }).then(function(data) {
+    console.log(data);
+  });
+});
+{{~/source-code}}
+    </article>
+  {{/if}}
+
+  {{#if isClient}}
+    <article class='code-example'>
+      <h2>iOS</h2>
+    </article>
+  {{/if}}
+
+  {{#if isServer}}
+    <article class="code-example">
+      <h2>cURL</h2>
+{{#source-code lang="bash"~}}
+curl -H 'Authorization: Token ACCESS_KEY' https://lcboapi.com/stores
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>PowerShell</h2>
+{{#source-code lang="powershell"~}}
+Invoke-WebRequest https://lcboapi.com/stores -Headers @{"Authorization" = "Token ACCESS_KEY"}
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>PHP</h2>
+{{#source-code lang="php"~}}
+$opts = array(
+  headers => array('Authorization' => 'Token ACCESS_KEY')
+);
+
+$body = http_get('https://lcboapi.com/stores', $opts);
+
+print $body;
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>Python</h2>
+{{#source-code lang="python"~}}
+import urllib2
+import json
+
+req = urllib2.Request('https://lcboapi.com/stores')
+req.add_header('Authorization', 'Token ACCESS_KEY')
+
+data = json.load(urllib2.urlopen(req))
+
+print data
+{{~/source-code}}
+    </article>
+
+    <article class='code-example'>
+      <h2>Ruby</h2>
+{{#source-code lang="ruby"~}}
+require 'json'
+require 'open-uri'
+
+res = open('https://lcboapi.com/stores',
+  'Authorization' => 'Token ACCESS_KEY'
+)
+data = JSON.parse(res.read)
+
+puts data.inspect
+{{~/source-code}}
+    </article>
+  {{/if}}
+
+  <p class="subnote">
+    <em>If you&rsquo;d like to see other examples, or have one you&rsquo;d like
+    to share, <a href="mailto:carsten@lcboapi.com">let me know</a></em>.
+  </p>
+</section>
+
+<section class="danger-zone">
+  <header>
+    <h1>Danger Zone</h1>
+  </header>
+
+  <div>
+    <button {{action "deleteKey"}}>
+      Delete Access Key
+    </button>
+  </div>
+</section>

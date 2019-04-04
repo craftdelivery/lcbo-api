@@ -1,0 +1,406 @@
+- :title: Datasets
+  :slug: datasets
+  :heading: Dataset Endpoints
+  :route: /datasets
+  :formats: &all_formats
+    :json: JSON (default format if no extension is supplied)
+    :js: JavaScript (for use with JSON-P, requires <code>callback</code> parameter)
+    :csv: Comma Separated Values
+    :tsv: Tab Separated Values
+  :params:
+  - :defaults
+  :per_page: 20
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 500
+  :sortable_fields:
+  - id
+  - created_at
+  - total_products
+  - total_stores
+  - total_inventories
+  - total_product_inventory_count
+  - total_product_inventory_volume_in_milliliters
+  - total_product_inventory_price_in_cents
+  :examples:
+  - :path: /datasets
+    :desc: Page all datasets
+  :body: |
+    Returns [datasets](/docs/dataset).
+
+- :title: Dataset
+  :slug: dataset
+  :heading: Dataset Endpoints
+  :route: /datasets/:id
+  :formats:
+    <<: *all_formats
+    :zip: ZIP archive of all data (redirects to actual file)
+  :examples:
+  - :path: /datasets/1
+    :desc: Get a specific dataset
+  :body: |
+    Datasets represent snapshots of all stores, products, and inventories at a
+    given time. They are created once per day and contain information such as
+    the IDs of stores and products that were added and removed since the
+    previous dataset.
+  :pairs:
+    id: Dataset identifier
+    total_products: Total unique retail products across all stores
+    total_stores: Total stores
+    total_inventories: Total inventory items across all stores
+    total_product_inventory_count: Total product units across all stores
+    total_product_inventory_volume_in_milliliters: Total volume of all product units across all stores
+    total_product_inventory_price_in_cents: Total retail value of all product units across all stores
+    created_at: The time the dataset was created
+    product_ids: List of all active product IDs at the time the dataset was created
+    store_ids: List of all active store IDs at the time the dataset was created
+    added_product_ids: List of product IDs that were added since the previous update
+    added_store_ids: List of store IDs that were added since the previous update
+    removed_product_ids: List of product IDs that were removed since the previous update
+    removed_store_ids: List of store IDs that were removed since the previous update
+    csv_dump: Contains a path to a ZIP archive of CSV files for stores, products, and inventories.
+
+- :title: Latest Dataset
+  :slug: latest-dataset
+  :heading: Dataset Endpoints
+  :route: /datasets/latest
+  :formats:
+    <<: *all_formats
+    :zip: ZIP archive of all data (redirects to actual file)
+  :examples:
+  - :path: /datasets/latest
+    :desc: Get the latest dataset
+  :body:
+    Retuns the latest [dataset](/docs/dataset)
+
+- :title: Products
+  :slug: products
+  :heading: Product Endpoints
+  :route: /products
+  :query: ProductsQuery
+  :per_page: 20
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 200
+  :formats:
+    <<: *all_formats
+  :filterable_fields:
+  - is_dead
+  - is_discontinued
+  - has_value_added_promotion
+  - has_limited_time_offer
+  - has_bonus_reward_miles
+  - is_seasonal
+  - is_vqa
+  - is_kosher
+  :sortable_fields:
+  - id
+  - price_in_cents
+  - regular_price_in_cents
+  - limited_time_offer_savings_in_cents
+  - limited_time_offer_ends_on
+  - bonus_reward_miles
+  - bonus_reward_miles_ends_on
+  - package_unit_volume_in_milliliters
+  - total_package_units
+  - total_package_volume_in_milliliters
+  - volume_in_milliliters
+  - alcohol_content
+  - price_per_liter_of_alcohol_in_cents
+  - price_per_liter_in_cents
+  - inventory_count
+  - inventory_volume_in_milliliters
+  - inventory_price_in_cents
+  - released_on
+  :params:
+  - :defaults
+  - :q
+  :examples:
+  - :path: /products
+    :desc: All products
+  - :path: /products?q=waupoos
+    :desc: Full-text search
+  - :path: /products?where=is_vqa&order=released_on.desc
+    :desc: All VQA products ordered by release date
+  :body: |
+    Returns [products](/docs/product).
+
+- :title: Product
+  :slug: product
+  :heading: Product Endpoints
+  :route: /products/:id
+  :formats:
+    <<: *all_formats
+  :examples:
+  - :path: /products/18
+    :desc: Show product 18
+  :pairs:
+  :body:
+    Represents an LCBO product.
+
+- :title: Products at Store
+  :slug: products-at-store
+  :heading: Product Endpoints
+  :route: /stores/:id/products
+  :query: ProductsQuery
+  :per_page: 20
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 200
+  :formats:
+    <<: *all_formats
+  :filterable_fields:
+  - is_dead
+  - is_discontinued
+  - has_value_added_promotion
+  - has_limited_time_offer
+  - has_bonus_reward_miles
+  - is_seasonal
+  - is_vqa
+  - is_kosher
+  :sortable_fields:
+  - id
+  - price_in_cents
+  - regular_price_in_cents
+  - limited_time_offer_savings_in_cents
+  - limited_time_offer_ends_on
+  - bonus_reward_miles
+  - bonus_reward_miles_ends_on
+  - package_unit_volume_in_milliliters
+  - total_package_units
+  - total_package_volume_in_milliliters
+  - volume_in_milliliters
+  - alcohol_content
+  - price_per_liter_of_alcohol_in_cents
+  - price_per_liter_in_cents
+  - inventory_count
+  - inventory_volume_in_milliliters
+  - inventory_price_in_cents
+  - released_on
+  :params:
+  - :defaults
+  - :q
+  :examples:
+  - :path: /stores/511/products
+    :desc: All products available at store 511
+  - :path: /stores/511/products?where=is_vqa
+    :desc: All VQA products at store 511
+  :body: |
+    Returns all [products](/docs/product) that are available at the specified
+    store along with the currenty reported inventory quantity for each.
+
+- :title: Stores with Product
+  :slug: stores-with-product
+  :heading: Store Endpoints
+  :route: /products/:id/stores
+  :query: StoresQuery
+  :per_page: 20
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 500
+  :formats:
+    <<: *all_formats
+  :filterable_fields:
+  :sortable_fields:
+  - distance_in_meters
+  - inventory_volume_in_milliliters
+  - id
+  - products_count
+  - inventory_count
+  - inventory_price_in_cents
+  :params:
+  - :defaults
+  - :geo
+  - :q
+  :examples:
+  - :path: /products/18/stores
+    :desc: Stores that stock product 18
+  - :path: /products/18/stores?geo=bloor+st+and+lansdowne+ave+toronto
+    :desc: Nearby Stores with Product
+  :body: |
+    Returns all of the [stores](/docs/store) that carry the specified product
+    along with the quantity that each store currently has in stock.
+
+- :title: Stores
+  :heading: Store Endpoints
+  :slug: stores
+  :route: /stores
+  :query: StoresQuery
+  :per_page: 20
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 500
+  :formats:
+    <<: *all_formats
+  :params:
+  - :defaults
+  - :geo
+  - :q
+  :filterable_fields:
+  - is_dead
+  - has_wheelchair_accessability
+  - has_bilingual_services
+  - has_product_consultant
+  - has_tasting_bar
+  - has_beer_cold_room
+  - has_special_occasion_permits
+  - has_vintages_corner
+  - has_parking
+  - has_transit_access
+  :sortable_fields:
+  - distance_in_meters
+  - inventory_volume_in_milliliters
+  - id
+  - products_count
+  - inventory_count
+  - inventory_price_in_cents
+  :examples:
+  - :path: /stores
+    :desc: All stores
+  :body: |
+    Returns [stores](/docs/store).
+
+- :title: Store
+  :slug: store
+  :heading: Store Endpoints
+  :route: /stores/:id
+  :formats:
+    <<: *all_formats
+  :examples:
+  - :path: /stores/511
+    :desc: Store 511
+  :pairs:
+    address_line_1: Street address
+    address_line_2: Secondary address information (Not all stores)
+    city: City the store is in
+    fax: Fax number (not all stores have one)
+    has_beer_cold_room: True if the store has a walk-in beer fridge
+    has_bilingual_services: True if the store has bilingual services
+    has_parking: True if the store has a parking lot
+    has_product_consultant: True if the store has a product consultant on staff
+    has_special_occasion_permits: True if the store can issue special occasion permits
+    has_tasting_bar: True if the store has a tasting bar
+    has_transit_access: True if the store is accessible by public transit
+    has_vintages_corner: True if the store has a Vintages area
+    has_wheelchair_accessability: True if the store can be entered via wheelchair
+    id: LCBO store number
+    inventory_count: Total inventory units at the store
+    inventory_price_in_cents: Total retail value of all products at the store
+    inventory_volume_in_milliliters: Total volume of all products at the store
+    is_dead: When a store is removed it is marked as "dead"
+    latitude: Reported latitude
+    longitude: Reported longitude
+    name: Official LCBO store name
+    postal_code: Postal code
+    products_count: Total unique products at the store
+    store_no: "LCBO store number [Deprecated: Use id instead]"
+    "[sunday..monday]_close": Minutes since midnight that the store closes
+    "[sunday..monday]_open": Minutes since midnight that the store opens
+    tags: A string of tags that reflect the store
+    telephone: Telephone number
+    updated_at: Time that the store information was updated
+  :body: |
+    Represents a physical LCBO location, please note that agency stores are not
+    included in LCBO API. Svante Richter was kind enough to provide a JSON dump
+    of LCBO agency stores, it can be found here:
+    [http://thirsty.kx.nu/js/agency.js](http://thirsty.kx.nu/js/agency.js)
+
+    Store Open / Close times are reperesented in minutes since midnight and can
+    be easily converted into 24 hour time. To get the clock hour, divide the
+    minutes since midnight by 60. To get the minute value, mod the number by 60.
+    Here is some example JavaScript that demonstrates how to perform the
+    calculation:
+
+    ```javascript
+    function msmTo24time(msm) {
+      var hour = msm / 60;
+      var mins = msm % 60;
+      return [hour, mins];
+    }
+    ```
+
+    You will probably want to convert the minutes since midnight to 12 hour time
+    since that's what most folks from Ontario will be familiar with, you can do
+    that with a few extra steps:
+
+    ```javascript
+    function msmTo12time(msm) {
+      var time = msmTo24time(msm),
+          h24  = time[0],
+          h12  = (0 == h24 ? 12 : (h24 > 12 ? (h24 - 10) - 2 : h24)),
+          ampm = (h24 >= 12 ? 'PM' : 'AM');
+      return [h12, time[1], ampm];
+    }
+    ```
+
+- :title: Inventories
+  :slug: inventories
+  :heading: Inventory Endpoints
+  :route: /inventories
+  :query: InventoriesQuery
+  :per_page: 50
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 500
+  :params:
+  - :defaults
+  :filterable_fields:
+  - is_dead
+  :sortable_fields:
+  - quantity
+  - updated_on
+  :formats:
+    <<: *all_formats
+  :examples:
+  - :path: /inventories
+    :desc: All inventories
+  :body: |
+    Returns [inventory](/docs/inventory) items.
+
+- :title: Inventory
+  :slug: inventory
+  :heading: Inventory Endpoints
+  :route: /stores/:id/products/:id/inventory
+  :formats:
+    <<: *all_formats
+  :examples:
+  - :path: /stores/511/products/18/inventory
+    :desc: Inventory of product 18 at store 511
+  :pairs:
+    product_id: Product ID
+    store_id: Store ID
+    is_dead: True if this inventory refers to a dead store and/or product
+    quantity: Reported quantity on hand of the product ID at store ID
+    updated_on: Reported date that quantity was updated
+    updated_at: Time that this inventory item was updated
+    product_no: Product ID [Deprecated]
+    store_no: Store ID [Deprecated]
+  :body: |
+    An inventory reflects the quantity of a product at a store, the
+    reported quantity is an estimate, quantities for seasonal and discontinued
+    products are also often inaccurate due to increased demand. This result
+    includes store and product resources as well.
+
+- :title: Product Inventories
+  :slug: product-inventories
+  :heading: Inventory Endpoints
+  :route: /products/:id/inventories
+  :query: InventoriesQuery
+  :per_page: 50
+  :max_per_page: 100
+  :limit: 50
+  :max_limit: 500
+  :params:
+  - :defaults
+  :filterable_fields:
+  - is_dead
+  :sortable_fields:
+  - quantity
+  - updated_on
+  :formats:
+    <<: *all_formats
+  :examples:
+  - :path: /products/18/inventories
+    :desc: All inventories for product 18
+  :body: |
+    Returns [inventories](/docs/inventory) for the specified product.

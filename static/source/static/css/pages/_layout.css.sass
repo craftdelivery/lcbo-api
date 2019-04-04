@@ -1,0 +1,447 @@
+.lcboapi-wordmark
+  margin: 0
+  padding: 0
+
+  a
+    margin-top: 10px
+    display: inline-block
+    width: 172px
+    height: 46px
+    background: url("https://dx5vpyka4lqst.cloudfront.net/assets/lcboapi-wordmark.png") no-repeat
+    background-size: cover
+
+  span
+    @extend %reader-only
+
+html, body
+  font-size: 16px
+  background: $green-grey-900
+  min-width: 960px
+
+body
+  position: relative
+
+body > main
+  margin: 0
+  padding: 0
+  background: $green-grey-50
+  min-height: 85vh
+
+body > footer
+  position: relative
+  background: $green-grey-900
+  color: $green-grey-700
+  font-size: 0.93em
+  z-index: 1000
+
+  nav, p
+    line-height: 3em
+
+  nav
+    position: absolute
+    left: $homepage-gutter
+    z-index: 1003
+
+    ol
+      list-style: none
+      margin: 0
+      padding: 0
+
+    li
+      margin: 0
+      padding: 0
+      display: inline-block
+
+      &:before
+        position: relative
+        +font-awesome
+        font-size: 5px
+        top: -4px
+        content: "\f111"
+        margin: 0 4px
+
+      &:first-child:before
+        content: none
+
+  a
+    color: $green-grey-600
+    text-decoration: none
+
+    &:active
+      color: material-color('purple', 'a400')
+
+    &:hover
+      color: $green-grey-500
+
+  .copyright
+    margin: 0
+    padding: 0
+    position: absolute
+    z-index: 1002
+    right: $homepage-gutter
+
+    a
+      color: $green-grey-700
+
+  .disclaimer
+    position: absolute
+    width: 100%
+    text-align: center
+    color: material-color('pink', '900')
+    z-index: 1001
+    margin: 0
+    padding: 0
+
+    span
+      padding-left: 42px
+
+      &:before
+        +font-awesome
+        content: "\f071"
+
+body > header
+  position: relative
+  background: white
+  height: $header-height
+  width: 100%
+  z-index: 1000
+
+  h1
+    position: absolute
+    left: $homepage-gutter
+
+  nav
+    position: absolute
+    right: $homepage-gutter + 1%
+    top: 20px
+    font-weight: 400
+    color: material-color('blue-grey', '700')
+
+    .sign-up a
+      @extend .button
+
+    a
+      text-decoration: none
+      color: material-color('blue-grey', '700')
+      &:hover
+        color: material-color('blue-grey', '900')
+
+    ol, ul
+      top: -5px
+      position: relative
+      list-style: none
+      margin: 0
+      padding: 0
+
+    > ol > li
+      margin: 0 16px
+      display: inline-block
+      &:last-child
+        margin-right: 0
+
+    .account-menu-container
+      position: relative
+      z-index: 998
+      top: -8px
+      right: -14px
+      border-radius: 3px
+      padding: 12px 16px
+      text-align: right
+      font-weight: normal
+
+      &.open
+        background: white
+        @extend %in-context-box-shadow
+        .account-menu
+          display: block
+
+    .account-name
+      position: relative
+      z-index: 999
+      .fa
+        position: relative
+        font-size: 14px
+        top: -2px
+        left: 3px
+        color: material-color('blue-grey', '400')
+
+    .account-menu
+      display: none
+      padding-top: 16px
+      li
+        line-height: 32px
+
+    .log-out a
+      color: material-color('red', '600')
+
+header.page-header
+  width: 100%
+  background: material-color('purple', '400')
+  margin: 0
+
+  h1
+    font-weight: 700
+    font-size: 2.7525em
+    letter-spacing: -0.02em
+    line-height: 186px
+    text-transform: uppercase
+    margin: 0
+    text-align: center
+    color: white
+
+pre code
+  background: $green-grey-900
+  font-size: 0.75em
+  font-weight: 400
+  color: $green-grey-100
+  display: block
+  padding: 4px 6px
+  border-radius: 3px
+
+  .nx
+    color: material-color('blue-grey', '100')
+  .p
+    color: material-color('blue-grey', '200')
+
+  .keyword, .kd
+    color: white
+    font-weight: 800
+
+  .k
+    color: material-color('pink', '500')
+    font-weight: 800
+
+  .tag, .nt
+    color: material-color('blue', '400')
+
+  .doctype, .cp
+    color: material-color('blue', '600')
+    background: rgba(material-color('blue', '800'), 0.15)
+
+  .comment, .c1
+    color: $green-grey-600
+
+  .property, .na
+    color: material-color('pink', '400')
+    .quote
+      color: darken(material-color('pink', '200'), 5%)
+    .colon
+      color: $green-grey-100
+
+  .nb
+    color: material-color('cyan', '300')
+
+  .string, .s2, .s1, .s
+    color: material-color('purple', '300')
+
+  .boolean
+    color: material-color('cyan', 'a400')
+    background: rgba(material-color('cyan', 'a200'), 0.05)
+
+  .null, .kc
+    color: material-color('light-green', '300')
+    background: rgba(material-color('green', 'a400'), 0.05)
+
+  .operator, .o
+    color: material-color('yellow', '700')
+
+  .number, .mi, .mf
+    color: material-color('blue', '400')
+
+body.docs header nav .docs,
+body.about header nav .about,
+body.news header nav .news
+  color: material-color('purple', 'a400')
+  border-bottom: 1px solid lighten(material-color('purple', 'a400'), 40%)
+
+.document
+  width: auto
+  max-width: 680px
+  min-height: 70vh
+  line-height: 1.25
+  margin: 0 auto
+  padding: 32px
+  padding-top: 16px
+  padding-bottom: 322px
+
+  &.no-min-height
+    min-height: 0
+    padding: 32px 0
+
+  footer
+    border-top: 1px solid material-color('grey', '300')
+    font-size: 0.8em
+    color: material-color('grey', '500')
+    line-height: 1.5
+    padding: 28px 0
+
+  .summary
+    font-size: 0.8em
+    color: material-color('grey', '500')
+
+  hr
+    display: block
+    height: 1px
+    width: 100%
+    border: none
+    background: material-color('blue-grey', '100')
+
+  a
+    color: material-color('purple', '500')
+    text-decoration: none
+
+    &:active
+      color: material-color('purple', 'a400')
+
+  h1, h2, h3, h4, h5, h6, p, ol, ul, pre, blockquote
+    text-align: left
+    margin: 1.25em 0
+
+  p, li, blockquote
+    line-height: 1.6
+
+  blockquote
+    color: material-color('grey', '500')
+    font-style: italic
+    border-left: 4px solid material-color('grey', '200')
+    padding: 0 1.25em
+
+  ul, ol
+    ul, ol
+      margin: 0
+
+  ul
+    list-style: disc
+
+  ol
+    list-style: decimal
+
+  ol, ul
+    ol
+      list-style: lower-roman
+
+    ul
+      list-style: circle
+
+  ul, ol
+    padding-left: 30px
+
+    ol, ul
+      margin: 0
+
+  h1, h2, h3, h4, h5, h6
+    margin: 0.65em 0
+
+  h1
+    font-size: 2em
+
+  h2
+    font-size: 1.5em
+
+  h3
+    font-size: 1.25em
+    font-weight: 600
+
+  code
+    position: relative
+    font-size: 0.85em
+    padding: 3px 4px
+    top: -1px
+    color: #222
+
+  a
+    code
+      color: material-color('purple', '500')
+      text-decoration: none
+
+    &:active code
+      color: material-color('purple', 'a400')
+
+  pre code
+    box-sizing: border-box
+    padding: 12px 14px
+    line-height: 1.3
+    font-size: 15px
+    font-weight: 400
+    top: 0
+    color: material-color('blue-grey', '100')
+
+  thead th
+    border-bottom: 1px solid material-color('blue-grey', '100')
+
+  table
+    font-size: 0.8em
+
+    th, td
+      box-sizing: border-box
+      padding: 8px 10px
+      line-height: 1.5
+
+    td
+      border-bottom: 1px solid material-color('blue-grey', '50')
+
+    tr:last-child td
+      border-bottom: none
+
+  td
+    vertical-align: top
+
+    p, pre
+      margin: 0
+
+    code
+      background: transparent
+      padding: 0
+      font-weight: 400
+
+  .warning, .info, .orly
+    position: relative
+    line-height: 1.3
+    color: white
+    padding: 20px 30px
+    padding-left: 80px
+    border-radius: 3px
+    z-index: 100
+
+    code
+      padding: 0
+      background: transparent
+
+    a
+      position: relative
+      z-index: 150
+      color: white
+      border-bottom: 2px solid rgba(white, 0.8)
+
+    &:before
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 80px
+      margin: auto
+      margin-left: 27px
+      font-size: 32px
+      line-height: 1
+      height: 32px
+      +font-awesome
+
+  .warning
+    background: material-color('pink', '500')
+
+    &:before
+      content: '\f071'
+
+  .info
+    background: material-color('light-blue', '500')
+
+    &:before
+      content: '\f05a'
+
+  .orly
+    background: material-color('cyan', '500')
+
+    &:before
+      font-size: 40px
+      height: 40px
+      content: '\f118'

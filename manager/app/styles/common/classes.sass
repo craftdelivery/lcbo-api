@@ -1,0 +1,62 @@
+// Yoinked from Bootstrap
+%reader-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0,0,0,0)
+  border: 0
+
+%glow
+  box-shadow: 0 0 6px 1px rgba(material-color('purple', 'a200'), 0.33)
+
+%glow-red
+  box-shadow: 0 0 6px 1px rgba(material-color('red', '200'), 0.33)
+
+.button
+  cursor: pointer
+  display: inline-block
+  outline: none
+  background: transparent
+  border: 2px solid material-color('purple', 'a400')
+  color: material-color('purple', 'a400')
+  border-radius: 3px
+  font-family: $roboto
+  font-weight: 500
+  text-decoration: none
+  line-height: 33px
+  height: 34px
+  font-size: 18px
+  padding: 0 13px
+  margin: 0
+
+  &:hover
+    color: material-color('purple', 'a400')
+    background: rgba(white, 0.5)
+
+  &:active
+    color: white
+    background: material-color('purple', 'a400')
+
+  &:focus
+    @extend %glow
+
+  &:focus:active
+    box-shadow: none
+
+%in-context-box-shadow
+  box-shadow: 0 1px 3px 1px rgba(material-color('blue-grey', '900'), 0.33)
+
+p.warn
+  background: material-color('orange')
+  border-radius: 3px
+  padding: 8px 14px
+  line-height: 1.5
+  font-size: 14px
+  color: white
+  &:before
+    +font-awesome
+    color: material-color('amber', '200')
+    content: "\f071"

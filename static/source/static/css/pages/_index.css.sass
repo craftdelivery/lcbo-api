@@ -1,0 +1,349 @@
+body.index
+  .shutdown-notice
+    background: material-color('pink', '500')
+    text-align: center
+    p
+      font-size: 2em
+      position: relative
+      line-height: 1.3
+      color: white
+      padding: 20px 30px
+      z-index: 100
+      a
+        position: relative
+        z-index: 150
+        color: white
+        text-decoration: none
+        border-bottom: 2px solid rgba(white, 0.8)
+
+  .hero
+    position: relative
+    height: 660px
+    overflow: hidden
+
+    > .left, > .right
+      position: absolute
+
+    > .left
+      left: $homepage-gutter
+      z-index: 100
+      width: 500px
+
+    > .right
+      z-index: 99
+      width: 100%
+
+    .black
+      color: $green-grey-800
+
+    .pink
+      color: material-color('pink', '500')
+
+    .purple
+      color: material-color('purple', '500')
+
+    .piglet
+      color: material-color('purple', 'a100')
+
+    .blue
+      color: material-color('light-blue', '500')
+
+    .green
+      color: material-color('green', 'a700')
+
+    .gold
+      color: material-color('lime', '500') // #d5cf2a <- PSD color
+
+  .hero-button
+    a
+      @extend .button
+      font-size: 1.7em
+      padding: 12px 28px
+
+  .hero-intro
+    margin-top: 56px
+
+    h1
+      font-weight: 900
+      font-size: 3.5em
+      text-transform: uppercase
+      letter-spacing: -0.02em
+      line-height: 1.05
+      color: darken($green-grey-600, 1%)
+
+      em
+        font-style: normal
+
+      span
+        display: block
+
+  .hero-try-it
+    position: relative
+    margin-left: 514px
+    left: $homepage-gutter
+
+    h1
+      +user-select(none)
+      margin-top: 26px
+      margin-bottom: 8px
+      width: 186px
+      height: 84px
+      background: transparent image-url("give-it-a-try.png") no-repeat
+      background-size: cover
+
+      span
+        @extend %reader-only
+
+  .try-it-component
+    position: relative
+    background: $green-grey-100
+    padding: 6px
+    padding-right: 0
+    padding-bottom: 0
+
+    .control-bar
+      position: absolute
+      background: white
+      height: 36px
+      width: 100%
+      line-height: 33px
+
+    .endpoint-selector
+      position: relative
+
+      &.open
+        .endpoint-selector-list
+          display: block
+          opacity: 1.0
+
+      .endpoint-selector-list
+        display: none
+        opacity: 0
+        position: absolute
+        z-index: 1000
+        background: white
+        list-style: none
+        border-radius: 3px
+        top: -14px
+        left: -14px
+        margin: 0
+        padding: 6px 0
+        @extend %in-context-box-shadow
+
+        > li
+          position: relative
+          padding: 8px 48px
+          padding-right: 38px
+          min-width: 222px
+          font-weight: 500
+          cursor: pointer
+          +user-select(none)
+
+          &:before
+            position: absolute
+            left: 20px
+            +font-awesome
+
+          &.selected
+            color: material-color('purple', 'a400')
+
+            &:before
+              content: "\f00c"
+
+          &:hover
+            background: lighten(material-color('purple', 'a400'), 48%)
+
+          &:active
+            background: material-color('purple', 'a400')
+            color: white
+
+            &:before
+              content: "\f00c"
+
+      .endpoint-selector-label
+        +user-select(none)
+        position: absolute
+        width: 30%
+        background: material-color('purple', 'a400')
+        color: white
+        font-weight: 500
+        height: 36px
+        left: 0
+        padding: 0 12px
+        box-sizing: border-box
+        cursor: pointer
+
+        &:after
+          position: absolute
+          +font-awesome
+          color: rgba(white, 0.66)
+          content: "\f0d7"
+          right: 12px
+          top: 1px
+          font-size: 19px
+
+        &:hover
+          background: lighten(material-color('purple', 'a400'), 10%)
+
+          &:after
+            color: rgba(white, 0.8)
+
+          &:active
+            background: lighten(material-color('purple', 'a400'), 48%)
+            color: material-color('purple', 'a400')
+            &:after
+              color: material-color('purple', 'a400')
+
+    .endpoint-path-input
+      position: absolute
+      width: 70%
+      height: 36px
+      right: 0
+
+      .readonly
+        margin-left: 8px
+        color: material-color('grey', '500')
+
+      input[type="submit"]
+        @extend %reader-only
+
+      input
+        width: 100%
+        position: absolute
+        padding: 0
+        margin-left: 107px
+        border: 0
+        background: transparent
+        left: -4px
+        box-sizing: border-box
+        height: 33px
+        outline: none
+
+    .console
+      margin-top: 36px
+      background: $green-grey-900
+      width: 100%
+      height: 500px
+      overflow-x: scroll
+      overflow-y: scroll
+
+      pre
+        margin: 0
+        padding: 0
+
+      pre code
+        background: transparent
+        font-size: 0.9375em
+        font-weight: 400
+        margin-right: $homepage-gutter + 5.5%
+
+  .sub
+    position: relative
+    padding: 164px 0
+
+    h1, p
+      margin: 0
+
+    h1
+      text-transform: uppercase
+      font-size: 2.375em
+      font-weight: 700
+      letter-spacing: -0.01em
+      line-height: 1.75
+
+    p
+      font-weight: 400
+      font-size: 1.6875em
+      line-height: 1.5
+
+    .left
+      h1, p
+        margin-left: $homepage-gutter
+        margin-right: 50%
+
+    .right
+      h1, p
+        margin-right: $homepage-gutter
+        margin-left: 50%
+
+  .meticulous-data
+    color: material-color('grey', '500')
+    background: $green-grey-800
+    padding: 180px 0
+
+    &:before
+      content: " "
+      position: absolute
+      display: block
+      width: 512px
+      height: 138px
+      background: transparent image-url("meticulous-data.png") no-repeat
+      background-size: cover
+      left: 0
+      top: 34%
+
+    h1
+      color: white
+
+  .powerful-features
+    background: white
+    padding: 152px 0
+
+    &:before
+      content: " "
+      position: absolute
+      display: block
+      width: 530px
+      height: 148px
+      background: transparent image-url("powerful-features.png") no-repeat
+      background-size: cover
+      right: 0
+      top: 35%
+
+    h1
+      color: $green-grey-900
+
+    p
+      color: $green-grey-600
+
+  .proven-reliability
+    background: material-color('purple', '400')
+    padding: 132px 0
+
+    &:before
+      content: " "
+      position: absolute
+      display: block
+      width: 478px
+      height: 172px
+      background: transparent image-url("proven-reliability.png") no-repeat
+      background-size: cover
+      left: 22px
+      top: 34%
+
+    h1
+      color: white
+
+    p
+      color: material-color('purple', '100')
+
+  .get-started
+    background: $green-grey-800
+    color: material-color('grey', '200')
+    padding: 84px 0
+
+    p
+      margin: 0
+      text-align: center
+      font-size: 1.6875em
+      line-height: 52px
+
+      a
+        margin-left: 16px
+        font-size: 27px
+        color: white
+        background: material-color('purple', 'a400')
+        padding-left: 22px
+        padding-right: 22px
+        line-height: 52px
+        height: 52px

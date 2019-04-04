@@ -1,0 +1,34 @@
+{{#ui-form minimal=true model=model action="createAccount"}}
+  <ol class="minimal-fields">
+    {{ui-form-field
+      for="name"
+      autofocus=true
+      tabindex=1
+      placeholder="Your Name"}}
+
+    {{ui-form-field
+      for="email"
+      type="email"
+      tabindex=2
+      placeholder="Email"}}
+
+    {{ui-form-field
+      type="password"
+      for="password"
+      tabindex=3}}
+
+    {{ui-form-field
+      class="terms"
+      type="checkbox"
+      for="doesAgreeToTerms"
+      labelTemplate="signup/form/terms-label"}}
+  </ol>
+
+  <div class="actions">
+    <button class="sign-up" type="submit" {{bind-attr disabled=disabled}} tabindex="5">Sign Up</button>
+  </div>
+
+  <div class="alt-actions">
+    <p>Already have an account? {{#link-to "login"}}Log In{{/link-to}}</p>
+  </div>
+{{/ui-form}}

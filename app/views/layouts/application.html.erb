@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= title %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/admin">LCBO API Admin</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li<% if params[:controller].include? 'crawls' %> class="active"<% end %>>
+                <%= link_to 'Crawls', admin_crawls_path %>
+              </li>
+              <li<% if params[:controller].include? 'users' %> class="active"<% end %>>
+                <%= link_to 'Users', admin_users_path %>
+              </li>
+              <li<% if params[:controller].include? 'plans' %> class="active"<% end %>>
+                <%= link_to 'Plans', admin_plans_path %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <%= yield %>
+    </main>
+
+    <footer class="container">
+      <small>You&rsquo;re beautiful!</small>
+    </footer>
+  </body>
+</html>

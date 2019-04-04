@@ -1,0 +1,156 @@
+.dashboard-keys-show
+  .activity-detail,
+  .key-detail,
+  .usage-detail,
+  .examples-detail
+    margin: 0 0 4em
+
+  .activity-detail
+    header
+      margin: 0
+      padding: .5em 0
+      text:
+        align: center
+        transform: uppercase
+      background: desaturate(material-color('purple', '800'), 20%)
+
+    h1,
+    h2
+      margin: 0
+      display: inline-block
+      font-size: 1.25em
+      line-height: 1
+
+    h1
+      font-weight: 900
+      color: white
+
+    h2
+      font-weight: 300
+      color: material-color('purple', '100')
+      margin-left: .25em
+
+  .key-and-usage-wrapper
+    +clearfix
+
+  .key-detail,
+  .usage-detail
+    @media only screen and (min-width: 1281px)
+      float: left
+      width: 47.5%
+
+  .key-detail
+    line-height: 1.5
+    background: material-color('purple', '400')
+    @media only screen and (min-width: 1281px)
+      margin-right: 5%
+
+    > h1
+      margin: 0
+      padding: 1.5em 0 1em
+      color: material-color('purple', '200')
+      font-size: 1.25em
+      line-height: 1
+      text-align: center
+
+    .key-payload
+      line-height: 1.6
+      background: transparent
+      padding: 0 2em 2em
+      color: white
+      font:
+        size: 1.25em
+        family: $source-code-pro
+      display: block
+      word-wrap: break-word
+
+    .meta
+      margin: 0
+      padding: 0
+      font-size: .875em
+      list-style: none
+      background: material-color('purple')
+
+      li
+        position: relative
+        margin: 1px 0 0
+        cursor: help
+        +clearfix
+
+      h2,
+      p
+        float: left
+        padding: 1em
+        margin: 0
+        line-height: 1
+        box-sizing: border-box
+
+      h2
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        width: 8em
+        font:
+          size: 1em
+          weight: 500
+        text-align: right
+        color: material-color('purple', '200')
+        background: material-color('purple', '600')
+
+      p
+        margin-left: 8em
+        font-weight: 500
+        color: lighten(material-color('purple', '100'), 5%)
+
+  .examples-detail
+    > h1:first-child
+      text-align: center
+      font-size: 3em
+
+    .code-example
+      margin: 0 0 3em
+      h2
+        font-weight: 400
+        color: material-color('blue-grey', '400')
+
+  .danger-zone
+    margin: 0
+    margin-top: 48px
+    background-color: material-color('red', '100')
+    border-radius: 3px
+
+    header
+      padding: 12px 18px
+
+    h1
+      margin: 0
+      line-height: 1
+      font-weight: 500
+      color: material-color('red')
+
+    > div
+      text-align: center
+      padding: 18px
+      padding-top: 0
+
+    button
+      @extend .button
+      line-height: 1
+      height: 42px
+      color: white
+      background-color: material-color('red')
+      border-color: material-color('red')
+
+      &:hover
+        background-color: material-color('red', '600')
+        border-color: material-color('red', '600')
+        color: white
+
+      &:active
+        background-color: material-color('red', 'a200')
+        border-color: material-color('red', 'a200')
+        color: white
+
+      &:focus
+        box-shadow: 0 0 2px 3px rgba(material-color('red'), 0.2)
