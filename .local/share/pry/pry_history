@@ -11,3 +11,69 @@ Module.constants.select { |c| (eval c).is_a? Class }
 ActiveRecord::Base.descendants
 Rails.application.eager_load!
 ActiveRecord::Base.descendants
+Rails.application.eager_load!
+ActiveRecord::Base.descendants
+Producer.count()
+Inventory.count()
+Store.count()
+Crawl.first
+Crawl.count()
+Rails.application.eager_load!
+ActiveRecord::Base.descendants
+Crawler.count()
+Crawl.first()
+Rails.application.eager_load!
+ActiveRecord::Base.descendants
+Plan.first
+CrawlEvent.first
+CrawlEvent.count
+CrawlEvent(1)
+CrawlEvent.find(1)
+CrawlEvent.id(1)
+CrawlEvent.where(id: 2)
+CrawlEvent.where(id: 1)
+CrawlEvent
+CrawlEvent.find()
+CrawlEvent.where()
+Crawl.first()
+rails c
+Crawl.init
+Crawl.paused
+Crawl.running
+Crawl.first
+Crawl.select(:state)
+Crawl.where.not(state: [:init, :running, :paused])
+Crawl.where(state: [:init, :running, :paused])
+Craw.find(2811).destroy
+Crawl.find(2811).destroy
+Crawl.where(state: [:init, :running, :paused])
+Crawl.find(2811).destroy
+Crawl.where(state: [:init, :running, :paused])
+Crawl.where(state: [:init, :running, :paused]).destroy_all
+Crawl.where(state: [:init, :running, :paused])
+Product.where('image_url LIKE ?', '%www.lcbo.com%')
+Product.where('image_url LIKE ?', '%www.lcbo.com%').count
+Product.where('image_url LIKE ?', '%www.lcbo.com%').select(:img_url)
+Product.where('image_url LIKE ?', '%www.lcbo.com%').select(:img_url).list()
+Product.where('image_url LIKE ?', '%www.lcbo.com%').select(:img_url).show()
+Product.where('image_url LIKE ?', '%www.lcbo.com%').select(:img_url)
+Product.where('image_url LIKE ?', '%www.lcbo.com%').select(:img_url).count
+Product.where('image_url LIKE ?', '%www.lcbo.com%')
+Product.where('image_url LIKE ?', '%www.lcbo.com%') 
+rails console
+Product.find()
+Product.all()
+exit
+Product.find(1)
+Product
+Product.first()
+Product.where(:id=>19)
+Product.where(:id=>192)
+Product.where(:id=>536508)
+Product.where(:id=>545970)
+=>   Product Load (3.0ms)  SELECT "products".* FROM "products" WHERE "products"."id" = $1  [["id", 545970]]
+[#<Product:0x0000562087defca8
+  id: 545970,
+  crawl_id: 2685,
+Product.find_all_by_id([545970])
+Product.where(id: [545970])

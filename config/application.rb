@@ -35,6 +35,7 @@ module LCBOAPI
     end
 
     config.active_record.schema_format = :sql
+    config.web_console.whitelisted_ips='172.18.0.1'
   end
 
   def self.[](key)

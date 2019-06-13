@@ -5,13 +5,13 @@ class APIConstraint
     @path    = "/v#{@version}"
     @verstr  = @version.to_s
     @mimes   = case @version
-    when 1
-      ['application/json', 'application/vnd.lcboapi.v1+json']
-    when 2
-      ['application/vnd.api+json', 'application/vnd.lcboapi.v2+json']
-    else
-      raise ArgumentError, "unknown API version: #{@version.inspect}"
-    end
+    # when 1
+    #   ['application/json', 'application/vnd.lcboapi.v1+json']
+    # when 2
+    #   ['application/vnd.api+json', 'application/vnd.lcboapi.v2+json']
+    # else
+    #   raise ArgumentError, "unknown API version: #{@version.inspect}"
+    # end
   end
 
   def matches?(req)
@@ -21,14 +21,15 @@ class APIConstraint
       return true
     end
 
-    if @mimes.any? { |m| req.headers['Accept'].to_s.include?(m) }
-      return true
-    end
+    # if @mimes.any? { |m| req.headers['Accept'].to_s.include?(m) }
+    #   return true
+    # end
 
-    if req.headers['X-LCBO-API-Version'].to_s == @verstr
-      return true
-    end
+    # if req.headers['X-LCBO-API-Version'].to_s == @verstr
+    #   return true
+    # end
 
-    false
+    # false
+    true
   end
 end

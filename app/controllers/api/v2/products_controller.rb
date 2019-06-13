@@ -28,6 +28,20 @@ class API::V2::ProductsController < API::V2::APIController
     render_json(data)
   end
 
+  def desc
+    data = {}
+    body = JSON.parse(request.body.read())
+    ids = body['ids']
+    puts ids
+    products = Product.find(ids).map { |product| {
+      description: product.description,
+      tasting_notes: product.tasting_note,
+      serving_suggestion: product.serving_suggestion,
+      id: product.id
+    }}
+    render_json(products)
+  end
+
   private
 
   def serialize(product, scope = nil)

@@ -60,6 +60,11 @@ Rails.application.routes.draw do
         get '/products'     => :index, as: :products
         get '/products/:id' => :index, constraints: { id: many_id_re }
         get '/products/:id' => :show,  as: :product
+        post '/desc' => :desc
+      end
+
+      controller :descriptions do
+        post '/descriptions' => :descriptions, as: :descriptions
       end
 
       controller :stores do

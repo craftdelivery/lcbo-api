@@ -11,6 +11,7 @@ class APIController < ApplicationController
     0.0.0.0
     127.0.0.1
     localhost
+    localhost:4444
   ]
 
   CORS_HEADERS = {
@@ -62,7 +63,6 @@ class APIController < ApplicationController
     end
 
     @enable_cors = true
-
     if origin && (LOOPBACKS.include?(origin) || origin.include?(current_key[:domain]))
       true
     else

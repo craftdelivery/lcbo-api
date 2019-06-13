@@ -1,5 +1,5 @@
 class ImageCacher
-  CF_DISTRO = 'dx5vpyka4lqst'
+  S3 = 'https://s3.ca-central-1.amazonaws.com/lcbo-api'
 
   MIMES = {
     jpeg: 'image/jpeg',
@@ -8,7 +8,7 @@ class ImageCacher
   }
 
   EXT = {
-    'image/jpeg' => 'jpeg',
+    'image/jpeg' => 'jpg',
     'image/png'  => 'png'
   }
 
@@ -23,7 +23,7 @@ class ImageCacher
 
   def initialize
     @s3 = Aws::S3::Client.new(
-      region: 'us-east-1',
+      region: 'ca-central-1',
       credentials: Aws::Credentials.new(
         Rails.application.secrets.s3_access_key,
         Rails.application.secrets.s3_secret_key
@@ -34,40 +34,38 @@ class ImageCacher
   def uncached
     Product.where('image_url LIKE ?', '%www.lcbo.com%')
   end
-
+  
+  def all
+    Product.all
+  end
   def run
-    uncached.find_each do |product|
-      [:image_url, :image_thumb_url].each do |col|
-        src_url  = product.read_attribute(col)
-        src_ext  = File.extname(src_url).sub('.', '').downcase.to_sym
-        src_mime = MIMES[src_ext]
+    imageTypes = [:image_url, :image_thumb_url]
 
-        begin
-          puts "Downloading #{col} for product #{product.id}..."
-          response = Excon.get(src_url)
-
-          unless response.status == 200
-            puts "Skipping #{col} for product #{product.id} (#{response.status})"
-            next
-          end
-        rescue Excon::Error::Socket, Excon::Error::Timeout => e
-          puts "Skipping #{col} for product #{product.id} (#{e.message})"
-          next
-        end
-
-        puts "Saving #{col} for product #{product.id}..."
-        key = store_product_image(product, col, src_mime, response.body)
-
-        product.update_column(col, "https://#{CF_DISTRO}.cloudfront.net/#{key}")
+    all.find_each do |product| 
+      url = "https://www.lcbo.com/content/dam/lcbo/products/#{product.id}.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
+      src_ext = File.extname(url).sub('.', '').downcase.to_sym
+      src_mime = MIMES[src_ext]
+      begin
+        response = Excon.get(url)
+        # unless response.status == 200
+        #   puts url
+        #   next
+        # end
+      rescue Excon::Error::Socket, Excon::Error::Timeout => e
+        puts e
+        next
       end
+
+      puts "Saving product #{product.id}..."
+      key = store_product_image(product, src_mime, response.body)
+      product.update_column(:image_url, "https://#{S3}/#{key}")
     end
   end
 
-  def store_product_image(product, col, mime, data)
-    type   = TYPES[col] || raise("FUCK")
+  def store_product_image(product, mime, data)
     ext    = EXT[mime] || raise("FUCK")
     bucket = Rails.application.secrets.s3_bucket
-    key    = "products/#{product.id}/images/#{type}.#{ext}"
+    key    = "#{product.id}.#{ext}"
 
     @s3.put_object(
       acl: 'public-read',

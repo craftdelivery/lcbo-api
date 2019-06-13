@@ -12,10 +12,9 @@ class API::V2::APIController < APIController
 
   rescue_from NotAuthorizedError, with: :not_authorized
 
-  before_action \
-    :verify_request!,
-    :enforce_access_key!,
-    :authenticate!, except: :preflight_cors
+  # :verify_request!,
+  # :enforce_access_key!,
+  # before_action :authenticate!, except: :preflight_cors
 
   self.responder = Class.new(responder) do
     def json_resource_errors

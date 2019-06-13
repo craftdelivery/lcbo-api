@@ -11,8 +11,8 @@ class API::V1::APIController < APIController
 
   before_action \
     :restrict_https!,
-    :restrict_cors!,
-    :verify_request!,
+    # :restrict_cors!,
+    # :verify_request!,
     :set_api_format,
     except: [:preflight_cors]
 
@@ -26,7 +26,7 @@ class API::V1::APIController < APIController
     return true if current_key
     return true unless https?
 
-    message = "You need an Access Key to use HTTPS on LCBO API, sign up for " \
+    message = "API-V1: You need an Access Key to use HTTPS on LCBO API, sign up for " \
       "one at https://lcboapi.com/sign-up"
 
     add_www_authenticate_header(message)
@@ -35,6 +35,8 @@ class API::V1::APIController < APIController
   end
 
   def restrict_cors!
+    # DISABLE
+    return false
     return true if request.headers['Origin'].blank?
     return true if current_key && current_key[:kind] == 'web_client'
 
