@@ -1,4 +1,5 @@
 class API::V2::InventoriesController < API::V2::APIController
+  
   def index
     data  = {}
     query = API::V2::InventoriesQuery.new(params)
@@ -13,6 +14,17 @@ class API::V2::InventoriesController < API::V2::APIController
     render_json(data)
   end
 
+  def onestore
+    render_json(Inventory.where(store_id: params[:store_id], is_dead: false))
+  end
+  
+  def stores
+    ids = JSON.parse(params[:store_ids])
+    # render_json(ids)
+    puts ids
+    render_json(Inventory.where(store_id: ids), is_dead: false)
+  end
+  
   def show
     data      = {}
     pid, sid  = *Magiq::Types.lookup(:inventory_id).cast(params[:id])

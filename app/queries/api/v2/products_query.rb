@@ -1,7 +1,7 @@
 class API::V2::ProductsQuery < API::V2::APIQuery
   model { Product }
 
-  has_pagination
+  # has_pagination
   has_include_dead
 
   by :id,  alias: :ids,              limit: 100

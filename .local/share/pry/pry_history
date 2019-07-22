@@ -77,3 +77,126 @@ Product.where(:id=>545970)
   crawl_id: 2685,
 Product.find_all_by_id([545970])
 Product.where(id: [545970])
+Product.first()
+Product.find(:tasting_notes => 'One of the leading names in BC Pinot Noir, Quails Gate consistently delivers examples that combine approachable ripe fruit with finesse. Look for strawberry, raspberry and sour cherry aromas and flavours with an earthy undertone, and pair with barbecued chicken, root veggies and goat cheese.')
+Product.find(:tasting_note => 'One of the leading names in BC Pinot Noir, Quails Gate consistently delivers examples that combine approachable ripe fruit with finesse. Look for strawberry, raspberry and sour cherry aromas and flavours with an earthy undertone, and pair with barbecued chicken, root veggies and goat cheese.')
+Product.where("tasting_note like 'One of the lead'")
+Product.where("tasting_note like 'One of the lead%'")
+Product.find(139089)
+Product.select(:img_url)
+Product.select(:img_url).all
+Product.select(:img_url).all()
+Product.find().select(:img_url)
+Product.find(:all).select(:img_url)
+Product.find(:all, :select => 'img_url')
+Product.find(:all, :select =>:img_url)
+Product.all.pluck(:img_url)
+Product.all.pluck(:imgage_url)
+Product.all.pluck(:image_url)
+Product.all.pluck(:image_url, :id)
+Product.where(:image_url => '')
+Product.where("image_url not like ? ''")
+Product.where("image_url not like ? '%lcbo-api%'")
+Product.where("image_url not like ? '%lcbo-api%'").all
+Product.where("image_url not like ? '%lcbo-api%'").all()
+Product.where("image_url not like ? '%lcbo-api%'").count()
+Product.where("image_url not like ? '%lcbo-api%'").count
+Product.where("image_url not like ? '%lcbo-api%'").list
+Product.where("image_url not like ? '%lcbo-api%'")
+Product.where("image_url not like ? '%lcbo-api%'").all
+Product.where("image_url not like ? '%lcbo-api%'").inspect
+Product.where("image_url like ? '%lcbo-api%'").inspect
+Product.where("image_url like ?'%lcbo-api%'").inspect
+Product.where("image_url like ? '%lcbo-api%'")
+Product.where("image_url like ? '%lcbo-api%'").find()
+Product.where("image_url like ? '%lcbo-api%'").array
+Product.where("image_url like ? '%lcbo-api%'").array()
+Product.where("image_url like ? '%lcbo-api%'").to_array()
+Product.where("image_url like ? '%lcbo-api%'").to_ary
+Product.where("image_url like ? '%lcbo\-api%'").to_ary
+Product.where("image_url like ? '%lcbo\-api%'")
+Product.where("image_url like ? '%lcbo\-api%'").all
+Product.where("image_url like ? '%lcbo\-api%'").all()
+Product.where("image_url like ? '%lcbo\-api%'").firsrt
+Product.where("image_url like ? '%lcbo\-api%'").first
+Product.where("image_url like ? '%lcbo\-api%'").count
+Product.where("image_url like ? '%lcbo\-api%'").count()
+Product.where("image_url like ? '%lcbo\-api%'")
+Product.where('id > ?', 39263)
+exit
+Product.where('id > ?', 39263).where.not(:image_url => nil)
+exit
+Product.where(:image_url=>nil).count
+exit
+Product.find(219758)
+Product.find(926613)
+Product.find(962613)
+Product.find(481069)
+Product.find(:image_url=>nil).count
+Products.find(:image_url=>nil).count
+Products.find(:image_url=>nil)
+Product.find(:image_url=>nil)
+Product.where(:image_url=>nil)
+Product.where(:image_url=>nil).count
+Product.where(:image_url=>nil)
+Product.id(40626).image_url
+Product.find(40626)
+Product.where(:image_thumb_url=>'webp').count
+Product.where.hot(:image_thumb_url=>'webp').count
+Product.where.not(:image_thumb_url=>'webp').count
+Product.where.hot(:image_thumb_url=>'webp').count
+Product.where.not(:image_thumb_url=>'webp').count
+Product.where(:image_thumb_url=>'webp').count
+Product.where(:image_url=>nil).count
+Product.count
+Product.where(:image_url=>nil).count
+Product.where.not(:image_thumb_url=>'webp').count
+Product.where(":image_url LIKE :prefix", prefix: 'https://https')
+Product.where(":image_url LIKE :prefix", prefix: 'https://https%')
+Product.where("image_url LIKE :prefix", prefix: 'https://https%')
+Product.where("image_url LIKE :prefix", prefix: 'https://https%').count
+Product.where("image_url LIKE :prefix", prefix: 'https://https%')
+Product.where("image_url LIKE :prefix", prefix: 'https://https%').count
+Product.where("image_url LIKE ? 'https://https%'").count
+Product.where(":image_url LIKE ? 'https://https%'").count
+Product.where(":image_url LIKE ?", 'https://https%').count
+Product.where("image_url LIKE ?", 'https://https%').count
+Product.where(:image_thumb_url => nil).count
+Product.where(:image_thumb_url =>'webp').count
+Product.where(:image_thumb_url =>'webp', :image_url=>nil)
+Product.where(:image_thumb_url =>'webp', :image_url=>nil).count
+Product.where(:image_thumb_url =>'webp').and.not(:image_url=>nil).count
+Product.where(:image_thumb_url =>'webp').and(:image_url=>!nil).count
+Product.where(:image_thumb_url =>'webp')
+Product.where(:image_thumb_url =>'webp').count
+Product.where.not(:image_url =>nil).count
+Product.where.not(:image_url =>nil).and(:image_thumb_url =>'webp').count
+Product.where.not(:image_url =>nil).or(:image_thumb_url =>'webp').count
+Product.where.not(:image_url =>nil).count
+Product.where(:image_thumb_url =>'webp').count
+Product.where.not(:image_url =>nil).count
+Product.where(:image_thumb_url =>'webp', :image_url: [nil: false])
+Product.where(:image_thumb_url =>'webp', :image_url => [nil: false])
+Product.where(:image_thumb_url =>'webp', :image_url => [nil: false]).all
+Product.where(:image_thumb_url =>'webp', :image_url => [nil: false]).count
+Product.find(576900)
+Product.find(:limited_time_offer_savings_in_cents>0)
+Product.where(:limited_time_offer_savings_in_cents>0)
+Product.where('limited_time_offer_savings_in_cents > ?', 0)
+Products.where.not(:description=>nil)
+Products.where.not(description=>nil)
+Products.where.not(description:nil)
+Products.first
+Product.where.not(description:nil)
+Product.where.not(description:nil).count
+Product.find(578898)
+Product.all
+Inventory.first
+Inventory.where(storeid:1)
+Inventory.find('storeid=?', 1)
+Inventory.find('store_id=?', 1)
+Inventory.where('store_id = ?', 1)
+Inventory.where('store_id (?)', [417])
+Inventory.where(store_id: [417])
+Inventory.where(store_id: [417, 1]).count
+Inventory.where(store_id: [417, 1, 617]).count

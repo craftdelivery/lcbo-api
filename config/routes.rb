@@ -54,13 +54,19 @@ Rails.application.routes.draw do
         get '/inventories/:id' => :show, as: :inventory
         get '/products/:product_id/stores/:store_id' => redirect('/inventories/%{product_id}-%{store_id}')
         get '/stores/:store_id/products/:product_id' => redirect('/inventories/%{product_id}-%{store_id}')
+        get '/inv/:store_id' => :onestore
+        get '/invs/:store_ids' => :stores
       end
 
       controller :products do
-        get '/products'     => :index, as: :products
+        # get '/products'     => :index, as: :products
         get '/products/:id' => :index, constraints: { id: many_id_re }
         get '/products/:id' => :show,  as: :product
         post '/desc' => :desc
+        get '/img' => :img
+
+        # we want raw data not serialized data
+        get '/products' => :all
       end
 
       controller :descriptions do

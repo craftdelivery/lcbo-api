@@ -4,42 +4,55 @@ class API::V2::ProductsController < API::V2::APIController
     query   = API::V2::ProductsQuery.new(params)
     scope   = query.to_scope
     results = scope.load
-
     data[:data] = results.map { |p| serialize(p, params) }
-
-    if (pagination = pagination_for(scope))
-      data[:meta] = pagination
-    end
-
+    puts 'GETTING PRODUCTS NO PAGINATION'
+    # if (pagination = pagination_for(scope))
+    #   data[:meta] = pagination
+    # end
+    # data[:meta]['foo'] = {foo: 'bar'}
     if data[:data].empty? && params[:q].present?
       data[:meta] ||= {}
       data[:meta][:search_suggestions] = [Fuzz[:products, params[:q]]]
     end
-
     render_json(data)
+  end
+
+  def all
+    render_json(Product.all)
   end
 
   def show
     data    = {}
     product = Product.find(params[:id])
-
     data[:data] = serialize(product, include_dead: true)
-
     render_json(data)
+  end
+
+  def clean(str)
+    if !str.nil? && str.kind_of?(String)
+      s = str.gsub("'", '')
+      s.gsub(/\s/, ' ')
+    else
+      return ''
+    end
   end
 
   def desc
     data = {}
     body = JSON.parse(request.body.read())
     ids = body['ids']
-    puts ids
     products = Product.find(ids).map { |product| {
-      description: product.description,
-      tasting_notes: product.tasting_note,
-      serving_suggestion: product.serving_suggestion,
-      id: product.id
+      description: clean(product.tasting_note),
+      servingsuggestion: clean(product.serving_suggestion),
+      lcboid: product.id,
+      released: clean(product.released_on)
     }}
     render_json(products)
+  end
+
+  def img
+    images = Product.all.pluck(:id, :image_url, :image_thumb_url)
+    render_json(images)
   end
 
   private

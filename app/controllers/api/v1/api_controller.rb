@@ -10,7 +10,7 @@ class API::V1::APIController < APIController
     V1::QueryHelper::BadQueryError, with: :render_exception
 
   before_action \
-    :restrict_https!,
+    # :restrict_https!,
     # :restrict_cors!,
     # :verify_request!,
     :set_api_format,

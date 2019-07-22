@@ -17,6 +17,7 @@ class Crawler < Boticus::Bot
 
   desc 'Get products index via API'
   task :get_products_index_via_api do
+    puts LCBO.products.first
     @api_product_ids = LCBO.products.map { |p| p[:id] }
   end
 

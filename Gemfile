@@ -18,6 +18,9 @@ gem 'stripe'          #git: 'https://github.com/stripe/stripe-ruby'
 gem 'dotenv-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'webp-ffi'
+gem 'rest-client'
+
 #gem 'capistrano',         #'~> 3.3.5'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'

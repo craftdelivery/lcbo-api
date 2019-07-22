@@ -4,7 +4,7 @@ class APIConstraint
     @default = default
     @path    = "/v#{@version}"
     @verstr  = @version.to_s
-    @mimes   = case @version
+    #@mimes   = case @version
     # when 1
     #   ['application/json', 'application/vnd.lcboapi.v1+json']
     # when 2
@@ -20,7 +20,7 @@ class APIConstraint
     if req.path.start_with?(@path)
       return true
     end
-
+    # TODO determine if this will affect image uploads?
     # if @mimes.any? { |m| req.headers['Accept'].to_s.include?(m) }
     #   return true
     # end

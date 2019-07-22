@@ -1,0 +1,1 @@
+Product.where('limited_time_offer_savings_in_cents > ?', 0)
