@@ -200,3 +200,36 @@ Inventory.where('store_id (?)', [417])
 Inventory.where(store_id: [417])
 Inventory.where(store_id: [417, 1]).count
 Inventory.where(store_id: [417, 1, 617]).count
+Product
+Product.find()
+Product.find(1)
+Products.find(1)
+Product.first
+Products.minimum(:price_per_liter_in_cents)
+Product.minimum(:price_per_liter_in_cents)
+Product.minimum(:price_per_liter_of_alcohol_in_cents)
+Product.where(:price_per_liter_in_cents > 0).minimum(:price_per_liter_in_cents)
+Product.where("price_per_liter_in_cents > ?",  0).minimum(:price_per_liter_in_cents)
+Product.find(212)
+Product.where("price_per_liter_in_cents > ?",  0).minimum(:price_per_liter_in_cents).all
+Product.where("price_per_liter_in_cents > ?",  0).minimum(:price_per_liter_in_cents).result
+Product.where("price_per_liter_in_cents > ?",  0)
+Product.where("price_per_liter_in_cents > ?",  0).minimum(:price_per_liter_in_cents).id
+Product.where("price_per_liter_in_cents > ?",  0).minimum(:price_per_liter_in_cents)
+Product.where("price_per_liter_in_cents > ?",  0).order(:price_per_liter_in_cents).first
+Product.where("price_per_liter_in_cents > ?",  0).where.not(:is_discontinued).order(:price_per_liter_in_cents).first
+Product.where("price_per_liter_in_cents > ?",  0).where.not(:is_discontinued => true).order(:price_per_liter_in_cents).first
+Product.where("price_per_liter_in_cents > ?",  0).where.not(:is_discontinued => true).order(:price_per_liter_in_cents)
+Product.where("price_per_liter_in_cents > ?",  0).where.not(:is_discontinued => true).where.not(:id_dead => true).order(:price_per_liter_in_cents)
+Product.where("price_per_liter_in_cents > ?",  0).where.not(:is_discontinued => true).where.not(:id_dead => true).order(:price_per_liter_in_cents).first
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).first
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents)
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, updated_at")
+Product.first
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, updated_at").limit(1)
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, updated_at").limit(10)
+Product.where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, alcohol_content, updated_at").limit(10)
+Product..where("alcohol_content >?", 50).where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, alcohol_content, updated_at").limit(10)
+Product.where("alcohol_content >?", 50).where("price_per_liter_in_cents > ?",0).where.not(:is_discontinued=>true).where.not(:is_dead=>true).order(:price_per_liter_in_cents).select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, alcohol_content, updated_at").limit(10)
+Product.first
+Product.where(:secondary_category=>"Sake")

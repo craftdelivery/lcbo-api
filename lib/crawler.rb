@@ -52,28 +52,27 @@ class Crawler < Boticus::Bot
     puts
   end
 
-  desc 'Updating product images'
-  task :update_product_images do
-    Product.where(is_dead: false, image_url: nil).find_each do |product|
-      begin
-        if (attrs = LCBO.product_images(product.id))
-          product.update!(attrs)
-          log :dot, "Adding image for product: #{product.id}"
-        end
-      rescue Excon::Error::Socket
-        log :warn, "Skipping image for product: #{product.id} (Socket EOF)"
-      rescue Excon::Error::Timeout
-        log :warn, "Skipping image for product: #{product.id} (Timeout)"
-      end
-    end
+  # desc 'Updating product images'
+  # task :update_product_images do
+  #   Product.where(is_dead: false, image_url: nil).find_each do |product|
+  #     begin
+  #       if (attrs = LCBO.product_images(product.id))
+  #         product.update!(attrs)
+  #         log :dot, "Adding image for product: #{product.id}"
+  #       end
+  #     rescue Excon::Error::Socket
+  #       log :warn, "Skipping image for product: #{product.id} (Socket EOF)"
+  #     rescue Excon::Error::Timeout
+  #       log :warn, "Skipping image for product: #{product.id} (Timeout)"
+  #     end
+  #   end
+  #   puts
+  # end
 
-    puts
-  end
-
-  desc 'Caching product images'
-  task :cache_product_images do
-    ImageCacher.run
-  end
+  # desc 'Caching product images'
+  # task :cache_product_images do
+  #   ImageCacher.run
+  # end
 
   desc 'Crawling inventories by product'
   task :crawl_inventories do
@@ -231,10 +230,10 @@ class Crawler < Boticus::Bot
     Category.mark_dead!
   end
 
-  desc 'Exporting CSV data'
-  task :export do
-    V1::Exporter.run(model.id)
-  end
+  # desc 'Exporting CSV data'
+  # task :export do
+  #   V1::Exporter.run(model.id)
+  # end
 
   desc 'Flushing page caches'
   task :flush_caches do

@@ -13,3 +13,8 @@ db/*.rdb
 
 # Ignore Byebug command history file.
 .byebug_history
+
+cheap/beer.json
+cheap/beer.csv
+.local/share/pry/*
+.DS_Store

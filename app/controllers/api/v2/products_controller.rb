@@ -55,6 +55,26 @@ class API::V2::ProductsController < API::V2::APIController
     render_json(images)
   end
 
+  def cheap
+    products = Product
+      .where(:primary_category=>"Beer")
+      .where.not("producer_name like ?", "%Saké%")
+      .where.not("producer_name like ?", "%Sake%")
+      .where.not("name like ?", "%Sake%")
+      .where.not("primary_category like ?", "%Sake%")
+      .where.not(:secondary_category=>"Sake")
+      .where.not("name like ?", "%Saké%")
+      .where.not("primary_category like ?", "%Saké%")
+      .where.not(:secondary_category=>"Saké")
+      .where("price_per_liter_in_cents > ?",0)
+      .where.not(:is_discontinued=>true)
+      .where("alcohol_content > ?", 100)
+      .where.not(:is_dead=>true)
+      .order(:price_per_liter_in_cents)
+      .select("id, name, price_per_liter_in_cents, price_in_cents, regular_price_in_cents, volume_in_milliliters, alcohol_content, primary_category, secondary_category, producer_name, updated_at")
+    render_json(products)
+  end
+
   private
 
   def serialize(product, scope = nil)

@@ -64,6 +64,7 @@ module LCBO
     ProductsParser.parse(xml)[:products]
   end
 
+  ## TODO figure out a better way to get the images...
   def product_images(id)
     id = id.to_s.rjust(6, '0')
 

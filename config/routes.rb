@@ -64,7 +64,7 @@ Rails.application.routes.draw do
         get '/products/:id' => :show,  as: :product
         post '/desc' => :desc
         get '/img' => :img
-
+        get '/cheap' => :cheap
         # we want raw data not serialized data
         get '/products' => :all
       end

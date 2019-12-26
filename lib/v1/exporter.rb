@@ -1,3 +1,4 @@
+## not in use
 module V1
   class Exporter
     TABLES = [:stores, :products, :inventories]

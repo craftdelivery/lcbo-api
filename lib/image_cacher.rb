@@ -323,6 +323,9 @@ class ImageCacher
 
   # TODO do in small batches
   # check nil urls and try again
+  ## Don't do this here.
+  ## reconcile our s3 directory listing with images we actually need (curated)
+  ## do a strategic wget of those specific images...
   def run
     puts 'NOT RUN::: FIX BLANK SIZE IMAGES FIRST'
     return
